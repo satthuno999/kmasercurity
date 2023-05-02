@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Hiếu <binh9aqktk@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>kmasercurity</id>
+    <name>Kma Sercurity</name>
+    <summary>kmasecurity</summary>
+    <description><![CDATA[kmasecurity]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="binh9aqktk@gmail.com" homepage="https://github.com/satthuno999">Hiếu</author>
+    <namespace>KmaSercurity</namespace>
+    <category>integration</category>
+    <bugs>https://github.com/satthuno999</bugs>
+    <dependencies>
+        <nextcloud min-version="24" max-version="24"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Kma Sercurity</name>
+            <route>kmasercurity.page.index</route>
+        </navigation>
+    </navigations>
+</info>
