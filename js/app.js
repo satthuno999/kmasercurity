@@ -55,29 +55,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.head.appendChild(metaTag);
 
-  //   $.ajax({
-  //     type: "GET",
-  //     url: "http://14.225.254.142:8080/api/v1/models",
-  //     data: {},
-  //     success: function (jsondata) {
-  //       //document.getElementById('loading').style.display = 'none';
-  //       var subTitle = "";
-  //       console.log(jsondata);
-  //       alert(1);
-  //       if (jsondata.status === "success") {
-  //       } else {
-  //       }
-  //       document.title = subTitle + document.title;
-  //     },
-  //   });
+  $.ajax({
+    type: "GET",
+    url: "http://14.225.254.142:8080/api/v1/models",
+    data: {},
+    success: function (jsondata) {
+      //document.getElementById('loading').style.display = 'none';
+      var subTitle = "";
+      console.log(jsondata);
+      alert(1);
+      if (jsondata.status === "success") {
+      } else {
+      }
+      document.title = subTitle + document.title;
+    },
+  });
 
-  fetch(`http://14.225.254.142:8080/api/v1/models`, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => console.log(error));
+  //   fetch(`http://14.225.254.142:8080/api/v1/models`, {
+  //     method: "GET",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => console.log(error));
   //   OCA.kmasercurity.Core.init();
 });
