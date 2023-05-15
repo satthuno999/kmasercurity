@@ -22,7 +22,7 @@ class PageController extends Controller {
 	 */
 	public function index(){
 		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
-		$response = new TemplateResponse('kmasercurity', 'dashboard');
+		$response = new TemplateResponse('kmasercurity', 'index');
 		return $response;
 	}
 }
