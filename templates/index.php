@@ -8,7 +8,7 @@ use OCP\Util;
 // Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 ?>
-<script>
+<!-- <script>
     WebFont.load({
         google: { families: ['Lato:300,400,700,900'] },
         custom: {
@@ -19,11 +19,12 @@ Util::addStyle('kmasercurity', 'fonts.min');
             sessionStorage.fonts = true;
         },
     });
-</script>
+</script> -->
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
 ?>
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
