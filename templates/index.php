@@ -72,7 +72,7 @@ Util::addScript('kmasercurity', 'plugin/plotly/plotly.min');
 Util::addScript('kmasercurity', 'atlantis.min');
 
 
-Util::addScript('kmasercurity', 'dashboard');
+// Util::addScript('kmasercurity', 'dashboard');
 
 Util::addScript('musicnc', 'app');
 ?>    
