@@ -24,7 +24,7 @@ Util::addStyle('kmasercurity', 'fonts.min');
 Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
 ?>
-<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
