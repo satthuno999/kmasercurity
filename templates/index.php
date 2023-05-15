@@ -75,6 +75,6 @@ Util::addStyle('kmasercurity', 'atlantis');
 
 // Util::addScript('kmasercurity', 'dashboard');
 
-// Util::addScript('kmasercurity', 'app');
+Util::addScript('kmasercurity', 'app');
 ?>    
 
