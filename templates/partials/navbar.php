@@ -62,7 +62,7 @@
             <li class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
-                        <img src="" alt="..."
+                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="..."
                             class="avatar-img rounded-circle" />
                     </div>
                 </a>
@@ -71,7 +71,7 @@
                         <li>
                             <div class="user-box">
                                 <div class="avatar-lg">
-                                    <img src="" alt="image profile"
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="image profile"
                                         class="avatar-img rounded" />
                                 </div>
                                 <div class="u-text">
