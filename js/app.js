@@ -51,7 +51,10 @@ if (!OCA.kmasecurity) {
 document.addEventListener("DOMContentLoaded", function () {
   var metaTag = document.createElement("meta");
   metaTag.setAttribute("http-equiv", "Content-Security-Policy");
-  metaTag.setAttribute("content", "script-src 'self' 'unsafe-inline'");
+  metaTag.setAttribute(
+    "content",
+    "default-src 'self' 'unsafe-inline' http://14.225.254.142/"
+  );
 
   document.head.appendChild(metaTag);
 
