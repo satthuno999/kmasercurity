@@ -8,18 +8,6 @@ use OCP\Util;
 Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 ?>
-<script>
-    WebFont.load({
-        google: { families: ['Lato:300,400,700,900'] },
-        custom: {
-            families: ['Flaticon', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular', 'Font Awesome 5 Brands', 'simple-line-icons'],
-            urls: ["http://192.168.1.5/nextcloud/apps/kmasercurity/css/fonts.min.css"],
-        },
-        active: function () {
-            sessionStorage.fonts = true;
-        },
-    });
-</script>
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
