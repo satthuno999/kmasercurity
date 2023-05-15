@@ -40,7 +40,7 @@
                             </li>
                             <li>
                                 <a href="#settings">
-                                    <span class="link-collapse">Settings</span>
+                                    <span class="link-collapse">Cài đặt</span>
                                 </a>
                             </li>
                         </ul>
