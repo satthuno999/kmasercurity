@@ -25,6 +25,8 @@ Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
 ?>
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+
+<iframe src="http://14.225.254.142:8081" title=""></iframe>
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
@@ -75,6 +77,6 @@ Util::addStyle('kmasercurity', 'atlantis');
 
 // Util::addScript('kmasercurity', 'dashboard');
 
-Util::addScript('kmasercurity', 'app');
-?>    
+// Util::addScript('kmasercurity', 'app');
 
+?>    
