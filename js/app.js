@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //     },
   //   });
 
-  fetch(`http://14.225.254.142:8080/api/v1/models`, {
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
     method: "GET",
   })
     .then((response) => response.json())
