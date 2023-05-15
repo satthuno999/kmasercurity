@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //document.getElementById('loading').style.display = 'none';
       var subTitle = "";
       console.log(jsondata);
+      alert(1);
       if (jsondata.status === "success") {
       } else {
       }
