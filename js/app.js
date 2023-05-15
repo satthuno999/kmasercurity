@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   metaTag.setAttribute("http-equiv", "Content-Security-Policy");
   metaTag.setAttribute(
     "content",
-    "connect-src 'self' http://14.225.254.142:8080"
+    "default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"
   );
 
   document.head.appendChild(metaTag);
@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetch(`http://14.225.254.142:8080/api/v1/models`, {
     method: "GET",
-    mode: "no-cors",
   })
     .then((response) => response.json())
     .then((response) => {
