@@ -52,10 +52,8 @@ Util::addStyle('kmasercurity', 'atlantis');
 Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
 ?>
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
 <?php
-// Util::addScript('kmasercurity', 'core/jquery.3.2.1.min');
+Util::addScript('kmasercurity', 'core/jquery.3.2.1.min');
 Util::addScript('kmasercurity', 'core/popper.min');
 Util::addScript('kmasercurity', 'core/bootstrap.min');
 
