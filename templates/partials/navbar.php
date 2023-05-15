@@ -75,7 +75,7 @@
                                         class="avatar-img rounded" />
                                 </div>
                                 <div class="u-text">
-                                    <h4>Admin</h4>
+                                    <h4>Admin SPARK</h4>
                                     <p class="text-muted">admin.kma@gmail.com</p>
                                     <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View
                                         Profile</a>
