@@ -17,7 +17,8 @@ return [
 	],
 	'routes' => [
 		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-		['name' => 'analysis#index', 'url' => '/#/analysis', 'verb' => 'GET']
+		['name' => 'analysis#index', 'url' => '/#/analysis', 'verb' => 'GET'],
 		
+		['name' => 'analysis#getTitle', 'url' => '/analysisTitle', 'verb' => 'GET']
 	]
 ];

@@ -42,7 +42,7 @@ Util::addStyle('kmasercurity', 'atlantis');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <?php print_unescaped($this->inc('views/content')); ?>
+        <?php print_unescaped($this->inc('views/dashboard')); ?>
         
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>

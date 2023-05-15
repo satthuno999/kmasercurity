@@ -1,3 +1,14 @@
+/**
+ * KMA SERCURITY
+ *
+ * This file is licensed under the Affero General Public License version 3 or
+ * later. See the LICENSE.md file.
+ *
+ * @author S P A R K <binh9aqktk@gmail.com>
+ * @copyright 2022-2023 S P A R K
+ *
+ */
+
 const id = '{{ model["id"] }}';
 const accuracy = JSON.parse('{{ model["accuracy"] }}') * 100;
 const precision = JSON.parse('{{ model["precision"] }}') * 100;

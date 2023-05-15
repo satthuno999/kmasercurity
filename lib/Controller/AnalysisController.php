@@ -25,4 +25,13 @@ class PageController extends Controller {
 		$response = new TemplateResponse('kmasercurity', 'analysis');
 		return $response;
 	}
+
+	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function getTitle()
+	{
+		return "Dashboard - Analysis";
+	}
 }
