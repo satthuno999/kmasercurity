@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   metaTag.setAttribute("http-equiv", "Content-Security-Policy");
   metaTag.setAttribute(
     "content",
-    "connect-src 'self' http://14.225.254.142:8080;default-src 'self' http://14.225.254.142:8080/api/;style-src 'self' 'unsafe-inline'"
+    "connect-src 'self' http://14.225.254.142:8080"
   );
 
   document.head.appendChild(metaTag);
