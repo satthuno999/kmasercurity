@@ -5,10 +5,10 @@ declare(strict_types=1);
 
 use OCP\Util;
 
-// Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
+Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 ?>
-<!-- <script>
+<script>
     WebFont.load({
         google: { families: ['Lato:300,400,700,900'] },
         custom: {
@@ -19,14 +19,12 @@ Util::addStyle('kmasercurity', 'fonts.min');
             sessionStorage.fonts = true;
         },
     });
-</script> -->
+</script>
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
 ?>
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
-
-<iframe src="http://14.225.254.142:8081" title=""></iframe>
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
@@ -56,27 +54,27 @@ Util::addStyle('kmasercurity', 'atlantis');
 ?>
 <?php
 // Util::addScript('kmasercurity', 'core/jquery.3.2.1.min');
-// Util::addScript('kmasercurity', 'core/popper.min');
-// Util::addScript('kmasercurity', 'core/bootstrap.min');
+Util::addScript('kmasercurity', 'core/popper.min');
+Util::addScript('kmasercurity', 'core/bootstrap.min');
 
-// Util::addScript('kmasercurity', 'plugin/jquery-ui-1.12.1.custom/jquery-ui.min');
-// Util::addScript('kmasercurity', 'plugin/query-ui-touch-punch/jquery.ui.touch-punch');
+Util::addScript('kmasercurity', 'plugin/jquery-ui-1.12.1.custom/jquery-ui.min');
+Util::addScript('kmasercurity', 'plugin/query-ui-touch-punch/jquery.ui.touch-punch');
 
-// Util::addScript('kmasercurity', 'plugin/jquery-scrollbar/jquery.scrollbar.min');
+Util::addScript('kmasercurity', 'plugin/jquery-scrollbar/jquery.scrollbar.min');
 
-// Util::addScript('kmasercurity', 'plugin/chart-circle/circles.min');
+Util::addScript('kmasercurity', 'plugin/chart-circle/circles.min');
 
-// Util::addScript('kmasercurity', 'plugin/bootstrap-notify/bootstrap-notify.min');
+Util::addScript('kmasercurity', 'plugin/bootstrap-notify/bootstrap-notify.min');
 
-// Util::addScript('kmasercurity', 'plugin/sweetalert/sweetalert.min');
+Util::addScript('kmasercurity', 'plugin/sweetalert/sweetalert.min');
 
-// Util::addScript('kmasercurity', 'plugin/plotly/plotly.min');
+Util::addScript('kmasercurity', 'plugin/plotly/plotly.min');
 
-// Util::addScript('kmasercurity', 'atlantis.min');
+Util::addScript('kmasercurity', 'atlantis.min');
 
 
 // Util::addScript('kmasercurity', 'dashboard');
 
-// Util::addScript('kmasercurity', 'app');
+Util::addScript('kmasercurity', 'app');
 
 ?>    
