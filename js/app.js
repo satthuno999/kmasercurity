@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetch(`http://14.225.254.142:8080/api/v1/models`, {
     method: "GET",
+    mode: "no-cors",
   })
     .then((response) => response.json())
     .then((response) => {
