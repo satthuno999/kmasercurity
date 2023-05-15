@@ -74,6 +74,6 @@ Util::addScript('kmasercurity', 'atlantis.min');
 
 // Util::addScript('kmasercurity', 'dashboard');
 
-Util::addScript('musicnc', 'app');
+Util::addScript('kmasercurity', 'app');
 ?>    
 

@@ -49,5 +49,5 @@ OCA.kmasecurity.Core = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  OCA.musicnc.Core.init();
+  OCA.kmasercurity.Core.init();
 });
