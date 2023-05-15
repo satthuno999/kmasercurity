@@ -14,13 +14,13 @@
         <div class="sidebar-content">
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
-                    <img src='{{ profile["avatar_url"] }}' alt="..." class="avatar-img rounded-circle" />
+                    <img src='' alt="..." class="avatar-img rounded-circle" />
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                         <span>
-                            {{ profile["name"] }}
-                            <span class="user-level">{{ profile["role"] }}</span>
+                            NAME
+                            <span class="user-level">ROLE</span>
                             <span class="caret"></span>
                         </span>
                     </a>

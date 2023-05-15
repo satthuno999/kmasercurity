@@ -13,7 +13,7 @@ Util::addStyle('kmasercurity', 'fonts.min');
         google: { families: ['Lato:300,400,700,900'] },
         custom: {
             families: ['Flaticon', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular', 'Font Awesome 5 Brands', 'simple-line-icons'],
-            urls: ["{{ url_for('static', path='/css/fonts.min.css') }}"],
+            urls: ["<?php Util::addStyle('kmasercurity', 'fonts.min'); ?>"],
         },
         active: function () {
             sessionStorage.fonts = true;
