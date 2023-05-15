@@ -22,7 +22,7 @@
             </ul>
         </nav>
         <div class="copyright ml-auto">
-            2023, made with <i class="fa fa-heart heart text-danger"></i> by <a href="#">K-Security</a>
+            2023, made with <i class="fa fa-heart heart text-danger"></i> by <a href="#">K-Security S P A R K</a>
         </div>
     </div>
 </footer>
