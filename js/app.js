@@ -20,33 +20,33 @@ if (!OCA.kmasecurity) {
 /**
  * @namespace OCA.kmasecurity.Core
  */
-// OCA.kmasecurity.Core = {
-//   initialDocumentTitle: null,
-//   AjaxCallStatus: null,
-//   drag: null,
+OCA.kmasecurity.Core = {
+  initialDocumentTitle: null,
+  AjaxCallStatus: null,
+  drag: null,
 
-//   init: function () {
-//     OCA.kmasecurity.Core.initialDocumentTitle = document.title;
+  init: function () {
+    OCA.kmasecurity.Core.initialDocumentTitle = document.title;
 
-//     if (OCA.kmasecurity.Core.AjaxCallStatus !== null) {
-//       OCA.kmasecurity.Core.AjaxCallStatus.abort();
-//     }
-//     OCA.kmasecurity.Core.AjaxCallStatus = $.ajax({
-//       type: "GET",
-//       url: "http://14.225.254.142:8080/api/v1/models",
-//       data: {},
-//       success: function (jsondata) {
-//         //document.getElementById('loading').style.display = 'none';
-//         var subTitle = "";
-//         console.log(jsondata);
-//         if (jsondata.status === "success") {
-//         } else {
-//         }
-//         document.title = subTitle + document.title;
-//       },
-//     });
-//   },
-// };
+    if (OCA.kmasecurity.Core.AjaxCallStatus !== null) {
+      OCA.kmasecurity.Core.AjaxCallStatus.abort();
+    }
+    OCA.kmasecurity.Core.AjaxCallStatus = $.ajax({
+      type: "GET",
+      url: "http://14.225.254.142:8080/api/v1/models",
+      data: {},
+      success: function (jsondata) {
+        //document.getElementById('loading').style.display = 'none';
+        var subTitle = "";
+        console.log(jsondata);
+        if (jsondata.status === "success") {
+        } else {
+        }
+        document.title = subTitle + document.title;
+      },
+    });
+  },
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   var metaTag = document.createElement("meta");
@@ -58,13 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.head.appendChild(metaTag);
 
-  fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => console.log(error));
-  //   OCA.kmasercurity.Core.init();
+  // fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
+  //   method: "GET",
+  // })
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => console.log(error));
+    OCA.kmasercurity.Core.init();
 });
