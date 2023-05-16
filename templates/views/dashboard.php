@@ -102,14 +102,14 @@ if (isset($responseModel['data']['recall'])) {
                                 <div>
                                     <h5 class="fw-bold op-8">Version</h5>
                                     <h3 class="fw-bold">
-                                        <?php echo "$version" ?>
+                                        <?php echo "$modelVersion" ?>
                                     </h3>
                                 </div>
                                 <div class="py-2"></div>
                                 <div>
                                     <h5 class="fw-bold op-8">File Size</h5>
                                     <h3 class="fw-bold">
-                                        <?php echo "$id" ?>
+                                        <?php echo "$modelSize" ?>
                                     </h3>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@ if (isset($responseModel['data']['recall'])) {
                                 <div>
                                     <h5 class="fw-bold op-8">Type</h5>
                                     <h3 class="fw-bold text-uppercase">
-                                        <?php echo "$type" ?>
+                                        <?php echo "$modelType" ?>
                                     </h3>
                                 </div>
                                 <div class="py-2"></div>
