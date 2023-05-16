@@ -28,7 +28,7 @@ if (isset($response['data'][0]['version'])) {
                 <div>
                     <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
                     <h5 class="text-white op-7 mb-2">Model's results given based on version
-                        <?php echo $this->$version ?>
+                        <?php echo "$version" ?>
                     </h5>
                 </div>
                 <div class="ml-md-auto py-2 py-md-0">
