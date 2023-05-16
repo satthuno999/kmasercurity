@@ -16,7 +16,7 @@ Util::addStyle('kmasercurity', 'atlantis');
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
-        <?php print_unescaped($this->inc('partials/logoheader')); ?>
+        <?php print_unescaped($this->inc('partials/logoheader', $data)); ?>
 
         <!-- End Logo Header -->
 
@@ -31,7 +31,7 @@ Util::addStyle('kmasercurity', 'atlantis');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <?php print_unescaped($this->inc('views/dashboard')); ?>
+        <?php print_unescaped($this->inc('views/dashboard', $data)); ?>
         
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>
