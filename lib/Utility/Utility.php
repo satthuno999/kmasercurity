@@ -18,10 +18,10 @@ class Utility
     /**
      * @param string $bytes
      */
-    function formatBytes($bytes, $precision = 2)
+    public static function formatBytes($size, $precision = 2)
     {
-        $size = (int)$bytes;
-        $base = log($size, 1024);
+        $sizeInt = (int)$size;
+        $base = log($sizeInt, 1024);
         $suffixes = array('', 'K', 'M', 'G', 'T');
 
         return round(pow(1024, $base - floor($base)), $precision) . ' ' . $suffixes[floor($base)];

@@ -110,7 +110,7 @@ if (isset($responseModel['data']['recall'])) {
                                 <div>
                                     <h5 class="fw-bold op-8">File Size</h5>
                                     <h3 class="fw-bold">
-                                        <?php echo Utility::formatBytes($formatBytes,3) ?>
+                                        <?php echo Utility::formatBytes($modelSize,3) ?>
                                     </h3>
                                 </div>
                             </div>
