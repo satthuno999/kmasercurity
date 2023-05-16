@@ -167,13 +167,13 @@ $recall = floatval($modelRecall) * 100;
 $accuracyData = [
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel,true)['accuracy'],
+        "y" => json_decode($historyModel, true)['accuracy'],
         "mode" => "lines",
         "name" => "train"
     ],
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel,true)['val_accuracy'],
+        "y" => json_decode($historyModel, true)['val_accuracy'],
         "mode" => "lines",
         "name" => "validation"
     ]
@@ -182,13 +182,13 @@ $accuracyData = [
 $lossData = [
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel,true)['loss'],
+        "y" => json_decode($historyModel, true)['loss'],
         "mode" => "lines",
         "name" => "train"
     ],
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel,true)['val_loss'],
+        "y" => json_decode($historyModel, true)['val_loss'],
         "mode" => "lines",
         "name" => "validation"
     ]
@@ -219,51 +219,52 @@ $lossData = [
             location.href = `/models/${id}/source?format=${format}`;
         });
     });
+    setInterval(function () {
+        Circles.create({
+            id: "circles-1",
+            radius: 45,
+            value: accuracy,
+            maxValue: 100,
+            width: 8,
+            text: `${Math.round(accuracy)}%`,
+            colors: ["#f1f1f1", "#2BB930"],
+            duration: 400,
+            wrpClass: "circles-wrp",
+            textClass: "circles-text",
+            styleWrapper: true,
+            styleText: true,
+        });
 
-    Circles.create({
-        id: "circles-1",
-        radius: 45,
-        value: accuracy,
-        maxValue: 100,
-        width: 8,
-        text: `${Math.round(accuracy)}%`,
-        colors: ["#f1f1f1", "#2BB930"],
-        duration: 400,
-        wrpClass: "circles-wrp",
-        textClass: "circles-text",
-        styleWrapper: true,
-        styleText: true,
-    });
+        Circles.create({
+            id: "circles-2",
+            radius: 45,
+            value: precision,
+            maxValue: 100,
+            width: 8,
+            text: `${Math.round(precision)}%`,
+            colors: ["#f1f1f1", "#2BB930"],
+            duration: 400,
+            wrpClass: "circles-wrp",
+            textClass: "circles-text",
+            styleWrapper: true,
+            styleText: true,
+        });
 
-    Circles.create({
-        id: "circles-2",
-        radius: 45,
-        value: precision,
-        maxValue: 100,
-        width: 8,
-        text: `${Math.round(precision)}%`,
-        colors: ["#f1f1f1", "#2BB930"],
-        duration: 400,
-        wrpClass: "circles-wrp",
-        textClass: "circles-text",
-        styleWrapper: true,
-        styleText: true,
-    });
-
-    Circles.create({
-        id: "circles-3",
-        radius: 45,
-        value: recall,
-        maxValue: 100,
-        width: 8,
-        text: `${Math.round(recall)}%`,
-        colors: ["#f1f1f1", "#2BB930"],
-        duration: 400,
-        wrpClass: "circles-wrp",
-        textClass: "circles-text",
-        styleWrapper: true,
-        styleText: true,
-    });
+        Circles.create({
+            id: "circles-3",
+            radius: 45,
+            value: recall,
+            maxValue: 100,
+            width: 8,
+            text: `${Math.round(recall)}%`,
+            colors: ["#f1f1f1", "#2BB930"],
+            duration: 400,
+            wrpClass: "circles-wrp",
+            textClass: "circles-text",
+            styleWrapper: true,
+            styleText: true,
+        });
+    },3000)
 
     // const accuracyData = [
     //     {
