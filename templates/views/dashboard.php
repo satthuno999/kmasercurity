@@ -1,4 +1,5 @@
 <?php
+use OCA\KmaSercurity\Utility\Utility;
 /**
  * KMA SERCURITY
  *
@@ -109,7 +110,7 @@ if (isset($responseModel['data']['recall'])) {
                                 <div>
                                     <h5 class="fw-bold op-8">File Size</h5>
                                     <h3 class="fw-bold">
-                                        <?php echo "$modelSize" ?>
+                                        <?php echo Utility::formatBytes($formatBytes) ?>
                                     </h3>
                                 </div>
                             </div>
