@@ -31,7 +31,7 @@ Util::addStyle('kmasercurity', 'atlantis');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <p><?php echo $data ?></p>
+        <p><?php echo "$data" ?></p>
         <?php print_unescaped($this->inc('views/dashboard')); ?>
         
         <?php print_unescaped($this->inc('partials/footer')); ?>
