@@ -1,14 +1,18 @@
-.wrapper{
+.wrapper {
     width: 100%;
 }
-.main-header{
+
+.main-header {
     display: none;
 }
-.sidebar{
+
+.sidebar {
     position: absolute;
     margin-top: 10px;
 }
-.main-panel>.content{
+
+.main-panel>.content {
     margin-top: 10px;
-    overflow-y: auto;
+    overflow: auto;
+    max-height: 100vh;
 }
