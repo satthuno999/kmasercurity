@@ -10,9 +10,17 @@
  */
 
 $response = json_decode($data, true);
+if (isset($response['data'][0]['id'])) {
+    $id = $response['data'][0]['id'];
+}
 if (isset($response['data'][0]['version'])) {
     $version = $response['data'][0]['version'];
-} else {
+}
+if (isset($response['data'][0]['type'])) {
+    $type = $response['data'][0]['type'];
+}
+if (isset($response['data'][0]['created_at'])) {
+    $created_at = $response['data'][0]['created_at'];
 }
 ?>
 <div class="content">
@@ -70,23 +78,23 @@ if (isset($response['data'][0]['version'])) {
                             <div class="col-md-6 d-flex flex-column justify-content-around">
                                 <div>
                                     <h5 class="fw-bold op-8">Version</h5>
-                                    <h3 class="fw-bold">{{ model["version"] }}</h3>
+                                    <h3 class="fw-bold"> <?php echo "$version" ?></h3>
                                 </div>
                                 <div class="py-2"></div>
                                 <div>
                                     <h5 class="fw-bold op-8">File Size</h5>
-                                    <h3 class="fw-bold">{{ model["size"] | filesizeformat }}</h3>
+                                    <h3 class="fw-bold"> <?php echo "$id" ?></h3>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-around">
                                 <div>
                                     <h5 class="fw-bold op-8">Type</h5>
-                                    <h3 class="fw-bold text-uppercase">{{ model["type"] }}</h3>
+                                    <h3 class="fw-bold text-uppercase"> <?php echo "$type" ?></h3>
                                 </div>
                                 <div class="py-2"></div>
                                 <div>
                                     <h5 class="fw-bold op-8">Created Date</h5>
-                                    <h3 class="fw-bold">{{ model["created_at"].strftime("%d-%m-%Y %H:%M:%S") }}
+                                    <h3 class="fw-bold"><?php echo date_format($created_at, "dd/MM/YYYY hh:ii:ss") ?>
                                     </h3>
                                 </div>
                             </div>
