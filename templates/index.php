@@ -14,11 +14,9 @@ Util::addStyle('kmasercurity', 'atlantis');
 ?>
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
 <div class="wrapper">
-
-<p><?php echo "$data"?></p>
     <div class="main-header">
         <!-- Logo Header -->
-        <?php print_unescaped($this->inc('partials/logoheader', $data)); ?>
+        <?php print_unescaped($this->inc('partials/logoheader')); ?>
 
         <!-- End Logo Header -->
 
@@ -33,7 +31,8 @@ Util::addStyle('kmasercurity', 'atlantis');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <?php $this->inc('views/dashboard', $data); ?>
+        <p><?php echo $data ?></p>
+        <?php print_unescaped($this->inc('views/dashboard')); ?>
         
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>

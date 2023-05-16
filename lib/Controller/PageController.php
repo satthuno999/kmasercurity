@@ -23,12 +23,14 @@ class PageController extends Controller {
 	public function index(){
 		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
 		$url = "http://14.225.254.142:8080/api/v1/models";
-		$ch = curl_init($url);
-		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-		$data = curl_exec($ch);
-		curl_close($ch);
+		$request = new XMLHttpRequest();
 
-		$response = new TemplateResponse('kmasercurity', 'index', ['data' => $data]);
+		$request->open('GET', $url);
+		$request->setRequestHeader('Content-Type', 'application/json');
+		$request->send();
+		$response = json_decode($request->responseText);
+
+		$response = new TemplateResponse('kmasercurity', 'index', ['data' => $response->data]);
 		return $response;
 	}
 }
