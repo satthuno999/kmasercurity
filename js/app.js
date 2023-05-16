@@ -40,7 +40,7 @@ OCA.kmasercurity.Core = {
         var subTitle = "";
         console.log(jsondata);
         if (jsondata.status === "success") {
-          subTitle = jsondata.data
+          subTitle = jsondata
         } else {
         }
         document.title = subTitle + document.title;
