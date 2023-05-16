@@ -44,16 +44,12 @@ class PageController extends Controller {
 			$ch3 = curl_init($historyDataUrl);
 			curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
 			$historyData = json_decode(curl_exec($ch3));
-
-			$historyArray = new stdClass();
-			$historyArray->id = $dataResult['data'][0]['id'];
-			$historyArray->accuracy = $historyData['data']['accuracy'];
-			$historyArray->val_accuracy = $historyData['data']['val_accuracy'];
-			$historyArray->loss = $historyData['data']['loss'];
-			$historyArray->val_loss = $historyData['data']['val_loss'];
-
 			$historyModel = new HistoryModel(
-				$historyArray
+				$dataResult['data'][0]['id'],
+				$historyData->data->accuracy,
+				$historyData->data->val_accuracy,
+				$historyData->data->loss,
+				$historyData->data->val_loss,
 			);
 			curl_close($ch3);
 		}
