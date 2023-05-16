@@ -8,7 +8,7 @@ use OCP\Util;
 Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 
-$model = $data; 
+$model = json_decode($data); 
 ?>
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
@@ -17,7 +17,7 @@ Util::addStyle('kmasercurity', 'atlantis');
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
 <div class="wrapper">
     <div class="main-header">
-        <p><?php echo $data->data; ?></p>
+        <p><?php echo $model->data; ?></p>
         <!-- Logo Header -->
         <?php print_unescaped($this->inc('partials/logoheader')); ?>
 
