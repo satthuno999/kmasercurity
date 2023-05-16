@@ -94,7 +94,10 @@ if (isset($response['data'][0]['created_at'])) {
                                 <div class="py-2"></div>
                                 <div>
                                     <h5 class="fw-bold op-8">Created Date</h5>
-                                    <h3 class="fw-bold"><?php echo date_format($created_at, "d/m/Y H:i:s") ?>
+                                    <h3 class="fw-bold"><?php
+                                    $date = date_create($created_at);
+                                    echo date_format($date, "d/m/Y H:i:s") 
+                                    ?>
                                     </h3>
                                 </div>
                             </div>
