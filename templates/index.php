@@ -14,6 +14,9 @@ Util::addStyle('kmasercurity', 'fonts.min');
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
+
+
+Util::addStyle('kmasercurity', 'style');
 ?>
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
 <div class="wrapper">

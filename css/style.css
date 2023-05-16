@@ -1,0 +1,9 @@
+.wrapper{
+    width: 100%;
+}
+.main-header{
+    display: none;
+}
+.content{
+    overflow-y: auto;
+}
