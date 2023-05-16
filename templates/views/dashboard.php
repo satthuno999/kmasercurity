@@ -14,7 +14,8 @@
     $uri = $_SERVER['REQUEST_URI'];
     ?>
 
-    <p><?php echo "$model"?></p>
+    <p><?php echo "$data"?></p>
+    <p><?php echo "$model" ?></p>
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
