@@ -28,7 +28,7 @@ OCA.kmasercurity.Core = {
 
   init: function () {
     OCA.kmasercurity.Core.initialDocumentTitle = document.title;
-
+    document.title = "KMA LOADING";
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
