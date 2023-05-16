@@ -8,19 +8,25 @@
  * @author S P A R K <binh9aqktk@gmail.com>
  * @copyright 2022-2023 S P A R K
  */
+
+$response = json_decode($data);
+$version = $response->data[0]->version;
 ?>
 <div class="content">
     <?php
     $uri = $_SERVER['REQUEST_URI'];
     ?>
-
-    <p><?php echo "$data"?></p>
+    <p>
+        <?php echo "$data" ?>
+    </p>
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                 <div>
                     <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-                    <h5 class="text-white op-7 mb-2">Model's results given based on version <?php echo $this->$data['data'][0]['version'] ?></h5>
+                    <h5 class="text-white op-7 mb-2">Model's results given based on version
+                        <?php echo $this->$version ?>
+                    </h5>
                 </div>
                 <div class="ml-md-auto py-2 py-md-0">
                     <a href="#/analysis" class="btn btn-white btn-border btn-round mr-2">Analyze</a>
