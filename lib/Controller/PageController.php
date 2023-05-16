@@ -32,14 +32,14 @@ class PageController extends Controller {
 
 		$dataResult = json_decode($data,true);
 		if (isset($dataResult['data'][0]['id'])) {
-			$detailUrl = "http://14.225.254.142:8080/api/v1/models/" + $dataResult['data'][0]['id'];
+			$detailUrl = "http://14.225.254.142:8080/api/v1/models/".$dataResult['data'][0]['id'];
 
 			$ch2 = curl_init($detailUrl);
 			curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
 			$dataDetail = curl_exec($ch2);
 			curl_close($ch2);
 
-			$historyDataUrl = "http://14.225.254.142:8080/api/v1/models/" + $dataResult['data'][0]['id'] + "/history";
+			$historyDataUrl = "http://14.225.254.142:8080/api/v1/models/".$dataResult['data'][0]['id']."/history";
 			$ch3 = curl_init($historyDataUrl);
 			curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
 			$historyData = json_decode(curl_exec($ch3));
