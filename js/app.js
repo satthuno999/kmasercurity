@@ -34,13 +34,13 @@ OCA.kmasercurity.Core = {
     }
     OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
       type: "GET",
-      url: "http://14.225.254.142:8080/api/v1/models",
+      url: OC.generateUrl("apps/kmasercurity/analysisTitle"),
       data: {},
       success: function (jsondata) {
-        //document.getElementById('loading').style.display = 'none';
         var subTitle = "";
         console.log(jsondata);
         if (jsondata.status === "success") {
+          subTitle = jsondata.data
         } else {
         }
         document.title = subTitle + document.title;
