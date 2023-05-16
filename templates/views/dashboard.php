@@ -9,8 +9,11 @@
  * @copyright 2022-2023 S P A R K
  */
 
-$response = json_decode($data);
-$version = $response->data[0]->version;
+$response = json_decode($data, true);
+if (isset($response['data'][0]['version'])) {
+    $version = $response['data'][0]['version'];
+} else {
+}
 ?>
 <div class="content">
     <?php
