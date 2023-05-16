@@ -24,29 +24,29 @@ if (isset($responseData['data'][0]['created_at'])) {
 }
 
 $responseModel = json_decode($model, true);
-if (isset($responseModel['data'][0]['id'])) {
-    $modelId = $responseModel['data'][0]['id'];
+if (isset($responseModel['data']['id'])) {
+    $modelId = $responseModel['data']['id'];
 }
-if (isset($responseModel['data'][0]['version'])) {
-    $modelVersion = $responseModel['data'][0]['version'];
+if (isset($responseModel['data']['version'])) {
+    $modelVersion = $responseModel['data']['version'];
 }
-if (isset($responseModel['data'][0]['type'])) {
-    $modelType = $responseModel['data'][0]['type'];
+if (isset($responseModel['data']['type'])) {
+    $modelType = $responseModel['data']['type'];
 }
-if (isset($responseModel['data'][0]['size'])) {
-    $modelSize = $responseModel['data'][0]['size'];
+if (isset($responseModel['data']['size'])) {
+    $modelSize = $responseModel['data']['size'];
 }
-if (isset($responseModel['data'][0]['accuracy'])) {
-    $modelAccuracy = $responseModel['data'][0]['accuracy'];
+if (isset($responseModel['data']['accuracy'])) {
+    $modelAccuracy = $responseModel['data']['accuracy'];
 }
-if (isset($responseModel['data'][0]['loss'])) {
-    $modelLoss = $responseModel['data'][0]['loss'];
+if (isset($responseModel['data']['loss'])) {
+    $modelLoss = $responseModel['data']['loss'];
 }
-if (isset($responseModel['data'][0]['precision'])) {
-    $modelPrecision = $responseModel['data'][0]['precision'];
+if (isset($responseModel['data']['precision'])) {
+    $modelPrecision = $responseModel['data']['precision'];
 }
-if (isset($responseModel['data'][0]['recall'])) {
-    $modelRecall = $responseModel['data'][0]['recall'];
+if (isset($responseModel['data']['recall'])) {
+    $modelRecall = $responseModel['data']['recall'];
 }
 ?>
 <div class="content">
