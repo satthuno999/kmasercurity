@@ -9,7 +9,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 
-$model = json_decode($data); 
+$model = json_decode($data);
 ?>
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
@@ -25,7 +25,7 @@ Util::addStyle('kmasercurity', 'atlantis');
 
         <!-- Navbar Header -->
         <?php print_unescaped($this->inc('partials/navbar')); ?>
-        
+
         <!-- End Navbar -->
     </div>
 
@@ -35,12 +35,9 @@ Util::addStyle('kmasercurity', 'atlantis');
 
     <div class="main-panel">
         <?php
-            $dashboardRespone = new TemplateResponse('kmasercurity','/views/dashboard.php',['model'=>$model->data]);
-
-            // Render the response
-            echo $dashboardRespone->render();
+            $this->inc('views/dashboard');
         ?>
-        
+
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>
 </div>
@@ -73,4 +70,4 @@ Util::addScript('kmasercurity', 'atlantis.min');
 
 Util::addScript('kmasercurity', 'app');
 
-?>    
+?>
