@@ -167,13 +167,13 @@ $recall = floatval($modelRecall) * 100;
 $accuracyData = [
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel->accuracy),
+        "y" => json_decode($historyModel,true)['accuracy'],
         "mode" => "lines",
         "name" => "train"
     ],
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel->val_accuracy),
+        "y" => json_decode($historyModel,true)['val_accuracy'],
         "mode" => "lines",
         "name" => "validation"
     ]
@@ -182,13 +182,13 @@ $accuracyData = [
 $lossData = [
     [
         "x" => range(0, 100),
-        "y" => json_decode($historyModel->loss),
+        "y" => json_decode($historyModel,true)['loss'],
         "mode" => "lines",
         "name" => "train"
     ],
     [
         "x" => range(0, 100),
-        "y" => json_decode($$historyModel->val_loss),
+        "y" => json_decode($historyModel,true)['val_loss'],
         "mode" => "lines",
         "name" => "validation"
     ]
