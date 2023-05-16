@@ -195,6 +195,7 @@ $lossData = [
 ];
 ?>
 <script>
+    window.onload = function() {
     const id = '<?php echo $id; ?>';
     const accuracy = <?php echo $accuracy; ?>;
     const precision = <?php echo $precision; ?>;
@@ -220,7 +221,7 @@ $lossData = [
         });
     });
     setInterval(function () {
-        console.log("reset circle")
+        console.log("reset circle");
         Circles.create({
             id: "circles-1",
             radius: 45,
@@ -315,4 +316,6 @@ $lossData = [
     //         title: "Loss",
     //     },
     // });
+
+    }
 </script>
