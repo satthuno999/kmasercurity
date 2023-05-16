@@ -15,6 +15,7 @@ Util::addStyle('kmasercurity', 'atlantis');
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
 <div class="wrapper">
     <div class="main-header">
+        <p><?php echo "$data"?></p>
         <!-- Logo Header -->
         <?php print_unescaped($this->inc('partials/logoheader')); ?>
 
