@@ -13,10 +13,10 @@ namespace OCA\KmaSercurity\Models;
 
 class HistoryModel{
     private $id;
-    private $accuracy;
-    private $val_accuracy;
-    private $loss;
-    private $val_loss;
+    private $accuracy = array();
+    private $val_accuracy = array();
+    private $loss = array();
+    private $val_loss = array();
 
     public function __construct(
         $id,$accuracy,$val_accuracy,$loss,$val_loss
