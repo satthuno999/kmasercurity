@@ -39,8 +39,8 @@ OCA.kmasercurity.Core = {
       success: function (jsondata) {
         var subTitle = "";
         console.log(jsondata);
-          subTitle = jsondata
-        document.title = subTitle + document.title;
+          // subTitle = jsondata
+        // document.title = subTitle + document.title;
       },
     });
   },

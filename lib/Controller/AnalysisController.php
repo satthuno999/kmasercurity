@@ -32,6 +32,10 @@ class AnalysisController extends Controller {
 	 */
 	public function getTitle()
 	{
-		return "Dashboard - Analysis";
+		$url = "http://14.225.254.142:8080/api/v1/models"
+		$ch = curl_init($url);
+		$data = curl_exec($ch);
+curl_close($ch);
+		return $data;
 	}
 }
