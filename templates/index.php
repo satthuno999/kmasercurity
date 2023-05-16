@@ -35,7 +35,7 @@ Util::addStyle('kmasercurity', 'atlantis');
 
     <div class="main-panel">
         <?php
-            print_unescaped($this->inc('views/dashboard', ['model' => $this->$model]));
+            print_unescaped($this->inc('views/dashboard', ['model' => $this->$data]));
         ?>
 
         <?php print_unescaped($this->inc('partials/footer')); ?>
