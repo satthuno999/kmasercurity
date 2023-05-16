@@ -34,7 +34,7 @@ Util::addStyle('kmasercurity', 'atlantis');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <?php print_unescaped($this->inc('views/dashboard')); 
+        <?php
             $dashboardRespone = new TemplateResponse('kmasercurity','/views/dashboard.php',['model'=>$model->data]);
 
             // Render the response
