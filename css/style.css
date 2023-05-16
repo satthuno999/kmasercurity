@@ -4,14 +4,11 @@
 .main-header{
     display: none;
 }
-.content{
-    overflow-y: auto;
-    margin-top: 10px;
-}
 .sidebar{
     position: absolute;
     margin-top: 10px;
 }
 .main-panel>.content{
     margin-top: 10px;
+    overflow-y: auto;
 }
