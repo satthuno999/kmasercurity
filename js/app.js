@@ -8,6 +8,7 @@
  * @copyright 2022-2023 S P A R K
  */
 
+/* global OCA, OCP, OC, t, generateUrl, _, MediaMetadata, Sonos, playSonos, requestToken */
 "use strict";
 
 if (!OCA.kmasecurity) {
