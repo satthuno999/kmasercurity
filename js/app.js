@@ -11,28 +11,28 @@
 /* global OCA, OCP, OC, t, generateUrl, _, MediaMetadata, Sonos, playSonos, requestToken */
 "use strict";
 
-if (!OCA.kmasecurity) {
+if (!OCA.kmasercurity) {
   /**
    * @namespace
    */
-  OCA.kmasecurity = {};
+  OCA.kmasercurity = {};
 }
 
 /**
- * @namespace OCA.kmasecurity.Core
+ * @namespace OCA.kmasercurity.Core
  */
-OCA.kmasecurity.Core = {
+OCA.kmasercurity.Core = {
   initialDocumentTitle: null,
   AjaxCallStatus: null,
   drag: null,
 
   init: function () {
-    OCA.kmasecurity.Core.initialDocumentTitle = document.title;
+    OCA.kmasercurity.Core.initialDocumentTitle = document.title;
 
-    if (OCA.kmasecurity.Core.AjaxCallStatus !== null) {
-      OCA.kmasecurity.Core.AjaxCallStatus.abort();
+    if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
+      OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
-    OCA.kmasecurity.Core.AjaxCallStatus = $.ajax({
+    OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
       type: "GET",
       url: "http://14.225.254.142:8080/api/v1/models",
       data: {},
