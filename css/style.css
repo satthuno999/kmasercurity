@@ -6,4 +6,9 @@
 }
 .content{
     overflow-y: auto;
+    margin-top: 10px;
+}
+.sidebar{
+    position: absolute;
+    margin-top: 10px;
 }
