@@ -22,6 +22,7 @@ class AnalysisController extends Controller {
 	 */
 	public function index(){
 		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
+		
 		$response = new TemplateResponse('kmasercurity', 'analysis');
 		return $response;
 	}

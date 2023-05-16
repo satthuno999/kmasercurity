@@ -20,15 +20,17 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function index(){
+	public function index(): TemplateResponse
+	{
 		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
 		$url = "http://14.225.254.142:8080/api/v1/models";
 		$ch = curl_init($url);
-		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$data = curl_exec($ch);
 		curl_close($ch);
 
-		$response = new TemplateResponse('kmasercurity', 'index', ['data' => $data]);
+		$params = ['data' => $data];
+		$response = new TemplateResponse('kmasercurity', 'index', $params);
 		return $response;
 	}
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 use OCP\Util;
+use OCP\AppFramework\Http\TemplateResponse;
 
 Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
@@ -17,7 +18,6 @@ Util::addStyle('kmasercurity', 'atlantis');
 <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
 <div class="wrapper">
     <div class="main-header">
-        <p><?php echo $model->data; ?></p>
         <!-- Logo Header -->
         <?php print_unescaped($this->inc('partials/logoheader')); ?>
 
@@ -34,7 +34,12 @@ Util::addStyle('kmasercurity', 'atlantis');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <?php print_unescaped($this->inc('views/dashboard')); ?>
+        <?php print_unescaped($this->inc('views/dashboard')); 
+            $dashboardRespone = new TemplateResponse('kmasercurity','views/dashboard.php',['model'=>$model->data]);
+
+            // Render the response
+            echo $dashboardRespone->render();
+        ?>
         
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>
