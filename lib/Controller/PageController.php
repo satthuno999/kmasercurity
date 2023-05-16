@@ -30,6 +30,7 @@ class PageController extends Controller {
 		$request->send();
 		$response = json_decode($request->responseText);
 
+		print_r($response)
 		$response = new TemplateResponse('kmasercurity', 'index', ['data' => $response->data]);
 		return $response;
 	}
