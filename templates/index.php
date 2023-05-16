@@ -9,7 +9,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 
-$model = json_decode($data);
+// $model = json_decode($data);
 ?>
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
