@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 use OCP\Util;
 
-Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
+// Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 ?>
 <?php
@@ -41,24 +41,24 @@ Util::addStyle('kmasercurity', 'bootstrap.min');
 Util::addStyle('kmasercurity', 'atlantis');
 ?>
 <?php
-Util::addScript('kmasercurity', 'core/jquery.3.2.1.min');
-Util::addScript('kmasercurity', 'core/popper.min');
-Util::addScript('kmasercurity', 'core/bootstrap.min');
+// Util::addScript('kmasercurity', 'core/jquery.3.2.1.min');
+// Util::addScript('kmasercurity', 'core/popper.min');
+// Util::addScript('kmasercurity', 'core/bootstrap.min');
 
-Util::addScript('kmasercurity', 'plugin/jquery-ui-1.12.1.custom/jquery-ui.min');
-Util::addScript('kmasercurity', 'plugin/query-ui-touch-punch/jquery.ui.touch-punch');
+// Util::addScript('kmasercurity', 'plugin/jquery-ui-1.12.1.custom/jquery-ui.min');
+// Util::addScript('kmasercurity', 'plugin/query-ui-touch-punch/jquery.ui.touch-punch');
 
-Util::addScript('kmasercurity', 'plugin/jquery-scrollbar/jquery.scrollbar.min');
+// Util::addScript('kmasercurity', 'plugin/jquery-scrollbar/jquery.scrollbar.min');
 
-Util::addScript('kmasercurity', 'plugin/chart-circle/circles.min');
+// Util::addScript('kmasercurity', 'plugin/chart-circle/circles.min');
 
-Util::addScript('kmasercurity', 'plugin/bootstrap-notify/bootstrap-notify.min');
+// Util::addScript('kmasercurity', 'plugin/bootstrap-notify/bootstrap-notify.min');
 
-Util::addScript('kmasercurity', 'plugin/sweetalert/sweetalert.min');
+// Util::addScript('kmasercurity', 'plugin/sweetalert/sweetalert.min');
 
-Util::addScript('kmasercurity', 'plugin/plotly/plotly.min');
+// Util::addScript('kmasercurity', 'plugin/plotly/plotly.min');
 
-Util::addScript('kmasercurity', 'atlantis.min');
+// Util::addScript('kmasercurity', 'atlantis.min');
 
 
 // Util::addScript('kmasercurity', 'dashboard');
