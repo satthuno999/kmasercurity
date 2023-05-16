@@ -220,6 +220,7 @@ $lossData = [
         });
     });
     setInterval(function () {
+        console.log("reset circle")
         Circles.create({
             id: "circles-1",
             radius: 45,
