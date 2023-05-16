@@ -32,17 +32,17 @@ OCA.kmasercurity.Core = {
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
-    OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
-      type: "GET",
-      url: OC.generateUrl("apps/kmasercurity/analysisTitle"),
-      data: {},
-      success: function (jsondata) {
-        var subTitle = "";
-        console.log(jsondata);
-          // subTitle = jsondata
-        // document.title = subTitle + document.title;
-      },
-    });
+    // OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
+    //   type: "GET",
+    //   url: OC.generateUrl("apps/kmasercurity/analysisTitle"),
+    //   data: {},
+    //   success: function (jsondata) {
+    //     var subTitle = "";
+    //     console.log(jsondata);
+    //       // subTitle = jsondata
+    //     // document.title = subTitle + document.title;
+    //   },
+    // });
   },
 };
 
