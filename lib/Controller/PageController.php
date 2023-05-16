@@ -28,7 +28,7 @@ class PageController extends Controller {
 		$data = curl_exec($ch);
 		curl_close($ch);
 
-		$response = new TemplateResponse('kmasercurity', 'index', ['data' => json_decode($data)]);
+		$response = new TemplateResponse('kmasercurity', 'index', ['data' => $data]);
 		return $response;
 	}
 }
