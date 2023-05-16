@@ -8,6 +8,9 @@
  * @author S P A R K <binh9aqktk@gmail.com>
  * @copyright 2022-2023 S P A R K
  */
+$jsonData = "$data";
+
+$data = json_decode($jsonData);
 ?>
 <div class="content">
     <?php
