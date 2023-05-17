@@ -40,7 +40,9 @@ Util::addStyle('kmasercurity', 'style');
         <?php
             print_unescaped($this->inc('views/dashboard', ['model' => $this->$data]));
         ?>
-
+        <?php
+            print_unescaped($this->inc('views/analysis'));
+        ?>
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>
 </div>

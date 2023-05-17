@@ -9,7 +9,7 @@
  * @copyright 2022-2023 S P A R K
  */
 ?>
-<div class="container">
+<div class="container" id="analysis" style="display:none" >
     <?php
     $uri = $_SERVER['REQUEST_URI'];
     ?>

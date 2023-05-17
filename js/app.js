@@ -45,7 +45,15 @@ OCA.kmasercurity.Core = {
     // });
   },
 };
-
+/**
+ * @namespace OCA.kmasercurity.Core
+ */
+OCA.kmasercurity.UI = {
+  handleAnalyzeToggleClicked: function () {
+    document.getElementById("analysis").style.display = "block";
+    document.getElementById("dashboard").style.display = "block";
+  },
+};
 document.addEventListener("DOMContentLoaded", function () {
   var metaTag = document.createElement("meta");
   metaTag.setAttribute("http-equiv", "Content-Security-Policy");
@@ -65,4 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //   })
   //   .catch((error) => console.log(error));
     OCA.kmasercurity.Core.init();
+    document
+    .getElementById("analyze")
+    .addEventListener("click", OCA.musicnc.UI.handleAnalyzeToggleClicked);
+
 });
