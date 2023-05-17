@@ -70,7 +70,7 @@ class ContentController extends Controller
 	 */
 	public function renderAnalyze()
 	{
-		$response = new TemplateResponse('kmasercurity', 'views/analyze');
+		$response = new TemplateResponse('kmasercurity', 'views/analysis');
 		return $response;
 	}
 }
