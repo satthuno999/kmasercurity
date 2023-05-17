@@ -25,9 +25,11 @@ OCA.kmasercurity.Core = {
   initialDocumentTitle: null,
   AjaxCallStatus: null,
   drag: null,
+  contentView: null,
 
   init: function () {
     OCA.kmasercurity.Core.initialDocumentTitle = document.title;
+    OCA.kmasercurity.Core.contentView = document.getElementById("content-view");
     document.title = "Dashboard";
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
@@ -37,9 +39,10 @@ OCA.kmasercurity.Core = {
       url: OC.generateUrl("apps/kmasercurity/dashboard"),
       data: {},
       success: function (jsondata) {
-        console.log(jsondata);
-          // subTitle = jsondata
-        // document.title = subTitle + document.title;
+        OCA.kmasercurity.Core.contentView.appendChild(jsondata);
+      },
+      error: function (xhr, status, error) {
+        console.error("AJAX request error:", error);
       },
     });
   },
