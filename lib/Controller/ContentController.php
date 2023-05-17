@@ -58,7 +58,31 @@ class ContentController extends Controller {
 			'historyModel' => $historyModel
 		];
 		
-		$response = new TemplateResponse('kmasercurity', 'views/dashboard', $params);
+		$response = new PartialResponse('views/dashboard', $params);
 		return $response;
+	}
+}
+
+
+class PartialResponse
+{
+	private $templateFile;
+	private $params;
+
+	public function __construct($templateFile, $params)
+	{
+		$this->templateFile = $templateFile;
+		$this->params = $params;
+	}
+
+	public function render()
+	{
+		extract($this->params); // Extract the parameters as variables
+
+		ob_start(); // Start output buffering
+		include $this->templateFile; // Include the template file
+		$content = ob_get_clean(); // Capture the output and clear the buffer
+
+		return $content;
 	}
 }
