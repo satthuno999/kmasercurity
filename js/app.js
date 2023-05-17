@@ -42,6 +42,13 @@ OCA.kmasercurity.Core = {
         var responseDoc = parser.parseFromString(jsondata, "text/html");
         var content = responseDoc.getElementById("content-view");
         $("#content-view-wrapper").append(content);
+
+        content
+          .getElementById("analyzeBtn")
+          .addEventListener(
+            "click",
+            OCA.kmasercurity.UI.handleAnalyzeToggleClicked
+          );
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
@@ -102,9 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //   })
   //   .catch((error) => console.log(error));
   OCA.kmasercurity.Core.init();
-  document
-    .getElementById("analyzeBtn")
-    .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
 
   document
     .getElementById("dashboardBtn")
