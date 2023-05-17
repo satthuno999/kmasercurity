@@ -39,6 +39,7 @@ OCA.kmasercurity.Core = {
       url: OC.generateUrl("apps/kmasercurity/dashboard"),
       data: {},
       success: function (jsondata) {
+        console.error(jsondata);
         $("#content-view").append(jsondata);
       },
       error: function (xhr, status, error) {
@@ -78,13 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
   //     console.log(response);
   //   })
   //   .catch((error) => console.log(error));
-    OCA.kmasercurity.Core.init();
-    document
-    .getElementById("analyzeBtn")
-    .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
+  // OCA.kmasercurity.Core.init();
+  // document
+  // .getElementById("analyzeBtn")
+  // .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
 
-    document
-    .getElementById("dashboardBtn")
-    .addEventListener("click", OCA.kmasercurity.UI.handleDashboardToggleClicked);
-
+  // document
+  // .getElementById("dashboardBtn")
+  // .addEventListener("click", OCA.kmasercurity.UI.handleDashboardToggleClicked);
 });
