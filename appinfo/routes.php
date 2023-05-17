@@ -18,6 +18,6 @@ return [
 	'routes' => [
 		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
 		
-		['name' => 'Content#renderDashboard', 'url' => '/dashboard', 'verb' => 'GET']
+		['name' => 'content#renderDashboard', 'url' => '/dashboard', 'verb' => 'GET']
 	]
 ];
