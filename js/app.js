@@ -43,7 +43,7 @@ OCA.kmasercurity.Core = {
         var content = responseDoc.getElementById("content-view");
         $("#content-view-wrapper").append(content);
 
-        content
+        responseDoc
           .getElementById("analyzeBtn")
           .addEventListener(
             "click",
