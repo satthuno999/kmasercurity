@@ -61,12 +61,7 @@ class ContentController extends Controller
 			'historyModel' => $historyModel
 		];
 
-		extract($params);
-		ob_start();
-		$templateFile = 'views/dashboard.php';
-		include $templateFile;
-		$content = ob_get_clean();
-
-		return $content;
+		$response = new TemplateResponse('kmasercurity', 'views/dashboard', $params);
+		return $response;
 	}
 }

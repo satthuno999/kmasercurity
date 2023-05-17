@@ -51,10 +51,7 @@ if (isset($responseModel['data']['recall'])) {
     $modelRecall = $responseModel['data']['recall'];
 }
 ?>
-<div class="content container" id="dashboard">
-    <?php
-    $uri = $_SERVER['REQUEST_URI'];
-    ?>
+<div class="content" id="content-view">
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
@@ -159,8 +156,6 @@ if (isset($responseModel['data']['recall'])) {
         </div>
     </div>
 </div>
-
-
 <?php
 $accuracy = floatval($modelAccuracy) * 100;
 $precision = floatval($modelPrecision) * 100;

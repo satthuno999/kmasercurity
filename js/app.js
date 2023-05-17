@@ -39,8 +39,11 @@ OCA.kmasercurity.Core = {
       url: OC.generateUrl("apps/kmasercurity/dashboard"),
       data: {},
       success: function (jsondata) {
-        console.log(jsondata);
-        $("#content-view").append(jsondata);
+        var parser = new DOMParser();
+        var responseDoc = parser.parseFromString(jsondata, "text/html");
+        var content = responseDoc.getElementById("content-view");
+        console.log(content)
+        $("#content-view-wrapper").append(content);
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);

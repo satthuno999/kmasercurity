@@ -37,7 +37,7 @@ Util::addStyle('kmasercurity', 'style');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <div class="content container" id="content-view">
+        <div id="content-view-wrapper">
         </div>
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>
