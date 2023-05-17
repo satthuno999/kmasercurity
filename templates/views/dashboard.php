@@ -51,7 +51,7 @@ if (isset($responseModel['data']['recall'])) {
     $modelRecall = $responseModel['data']['recall'];
 }
 ?>
-<div class="content" id="content-view">
+<div class="content dashboard" id="content-view">
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">

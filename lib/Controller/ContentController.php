@@ -64,4 +64,13 @@ class ContentController extends Controller
 		$response = new TemplateResponse('kmasercurity', 'views/dashboard', $params);
 		return $response;
 	}
+	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function renderAnalyze()
+	{
+		$response = new TemplateResponse('kmasercurity', 'views/analyze');
+		return $response;
+	}
 }

@@ -11,7 +11,7 @@
     margin-top: 10px;
 }
 
-.main-panel>.content {
+.main-panel>.content-view-wrapper {
     margin-top: 10px;
     overflow: auto;
     max-height: 100vh;
