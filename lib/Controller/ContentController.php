@@ -59,7 +59,7 @@ class ContentController extends Controller {
 		];
 		
 		$response = new PartialResponse('views/dashboard', $params);
-		return $response;
+		return $response->render();
 	}
 }
 
