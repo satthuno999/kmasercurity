@@ -29,7 +29,7 @@ OCA.kmasercurity.Core = {
 
   init: function () {
     document.title = "Dashboard";
-    $("#content-view-wrapper").html("");
+    OCA.kmasercurity.UI.loadingPage();
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
@@ -41,7 +41,7 @@ OCA.kmasercurity.Core = {
         var parser = new DOMParser();
         var responseDoc = parser.parseFromString(jsondata, "text/html");
         var content = responseDoc.getElementById("content-view");
-        $("#content-view-wrapper").append(content);
+        $("#content-view-wrapper").html(content);
 
         document
           .getElementById("analyzeBtn")
@@ -49,6 +49,7 @@ OCA.kmasercurity.Core = {
             "click",
             OCA.kmasercurity.UI.handleAnalyzeToggleClicked
           );
+        OCA.kmasercurity.UI.loadingPageDone();
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
@@ -58,7 +59,7 @@ OCA.kmasercurity.Core = {
 
   showAnalyze: function () {
     document.title = "Analyze";
-    $("#content-view-wrapper").html("");
+    OCA.kmasercurity.UI.loadingPage();
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
@@ -70,7 +71,8 @@ OCA.kmasercurity.Core = {
         var parser = new DOMParser();
         var responseDoc = parser.parseFromString(jsondata, "text/html");
         var content = responseDoc.getElementById("content-view");
-        $("#content-view-wrapper").append(content);
+        $("#content-view-wrapper").html(content);
+        OCA.kmasercurity.UI.loadingPageDone();
       },
       error: function (xhr, status, error) {
         OCA.kmasercurity.Core.init();
@@ -88,6 +90,12 @@ OCA.kmasercurity.UI = {
   },
   handleDashboardToggleClicked: function () {
     OCA.kmasercurity.Core.init();
+  },
+  loadingPage: function () {
+    $("#content-view-wrapper").css("opacity", "0");
+  },
+  loadingPageDone: function () {
+    $("#content-view-wrapper").css("opacity", "1");
   },
 };
 
