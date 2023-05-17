@@ -28,9 +28,8 @@ OCA.kmasercurity.Core = {
   contentView: null,
 
   init: function () {
-    OCA.kmasercurity.Core.initialDocumentTitle = document.title;
-    OCA.kmasercurity.Core.contentView = $("#content-view");
     document.title = "Dashboard";
+    $("#content-view-wrapper").html("");
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
@@ -42,10 +41,32 @@ OCA.kmasercurity.Core = {
         var parser = new DOMParser();
         var responseDoc = parser.parseFromString(jsondata, "text/html");
         var content = responseDoc.getElementById("content-view");
-        console.log(content)
         $("#content-view-wrapper").append(content);
       },
       error: function (xhr, status, error) {
+        console.log("AJAX request error:", error);
+      },
+    });
+  },
+
+  showAnalyze: function () {
+    document.title = "Analyze";
+    $("#content-view-wrapper").html("");
+    if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
+      OCA.kmasercurity.Core.AjaxCallStatus.abort();
+    }
+    OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
+      type: "GET",
+      url: OC.generateUrl("apps/kmasercurity/analyze"),
+      data: {},
+      success: function (jsondata) {
+        var parser = new DOMParser();
+        var responseDoc = parser.parseFromString(jsondata, "text/html");
+        var content = responseDoc.getElementById("content-view");
+        $("#content-view-wrapper").append(content);
+      },
+      error: function (xhr, status, error) {
+        OCA.kmasercurity.Core.init();
         console.log("AJAX request error:", error);
       },
     });
@@ -56,12 +77,10 @@ OCA.kmasercurity.Core = {
  */
 OCA.kmasercurity.UI = {
   handleAnalyzeToggleClicked: function () {
-    document.getElementById("analysis").style.display = "block";
-    document.getElementById("dashboard").style.display = "none";
+    OCA.kmasercurity.Core.showAnalyze();
   },
   handleDashboardToggleClicked: function () {
-    document.getElementById("dashboard").style.display = "block";
-    document.getElementById("analysis").style.display = "none";
+    OCA.kmasercurity.Core.init();
   },
 };
 document.addEventListener("DOMContentLoaded", function () {
@@ -83,11 +102,14 @@ document.addEventListener("DOMContentLoaded", function () {
   //   })
   //   .catch((error) => console.log(error));
   OCA.kmasercurity.Core.init();
-  // document
-  // .getElementById("analyzeBtn")
-  // .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
+  document
+    .getElementById("analyzeBtn")
+    .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
 
-  // document
-  // .getElementById("dashboardBtn")
-  // .addEventListener("click", OCA.kmasercurity.UI.handleDashboardToggleClicked);
+  document
+    .getElementById("dashboardBtn")
+    .addEventListener(
+      "click",
+      OCA.kmasercurity.UI.handleDashboardToggleClicked
+    );
 });
