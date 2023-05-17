@@ -27,14 +27,4 @@ class HistoryModel{
         $this->loss = $loss;
         $this->val_loss = $val_loss;
     }
-
-    /**
-     * Description
-     *
-     * @NoAdminRequired
-     */
-    public function FunctionName()
-    {
-        //call api or db
-    }
 }

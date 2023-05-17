@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace OCA\KmaSercurity\Controller;
 
 use OCA\KmaSercurity\AppInfo\Application;
+use OCA\KmaSercurity\Models\HistoryModel;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;

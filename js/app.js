@@ -28,7 +28,7 @@ OCA.kmasercurity.Core = {
 
   init: function () {
     OCA.kmasercurity.Core.initialDocumentTitle = document.title;
-    document.title = "Dash board";
+    document.title = "Dashboard";
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }

@@ -25,14 +25,4 @@ class TrainModel{
         $this->precision = $precision;
         $this->recall = $recall;
     }
-
-    /**
-     * Description
-     *
-     * @NoAdminRequired
-     */
-    public function FunctionName()
-    {
-        //call api or db
-    }
 }
