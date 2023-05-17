@@ -43,7 +43,7 @@ OCA.kmasercurity.Core = {
         var content = responseDoc.getElementById("content-view");
         $("#content-view-wrapper").append(content);
 
-        responseDoc
+        document
           .getElementById("analyzeBtn")
           .addEventListener(
             "click",
@@ -90,6 +90,7 @@ OCA.kmasercurity.UI = {
     OCA.kmasercurity.Core.init();
   },
 };
+
 document.addEventListener("DOMContentLoaded", function () {
   var metaTag = document.createElement("meta");
   metaTag.setAttribute("http-equiv", "Content-Security-Policy");
