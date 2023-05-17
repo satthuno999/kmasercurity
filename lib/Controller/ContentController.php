@@ -58,7 +58,7 @@ class ContentController extends Controller {
 			'historyModel' => $historyModel
 		];
 		
-		$response = new PartialResponse('views/dashboard', $params);
+		$response = new PartialResponse('views/dashboard.php', $params);
 		return $response->render();
 	}
 }
