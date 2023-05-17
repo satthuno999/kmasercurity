@@ -57,7 +57,7 @@ class ContentController extends Controller {
 			'model' => $dataDetail,
 			'historyModel' => $historyModel
 		];
-		
+
 		$templateFile = 'views/dashboard.php';
 		$response = new PartialResponse($templateFile, $params);
 		ob_start(); // Start output buffering
@@ -65,7 +65,7 @@ class ContentController extends Controller {
 		$htmlContent = ob_get_clean(); // Capture the output and clear the buffer
 
 		echo $htmlContent;
-		return $response->render();
+		return $htmlContent;
 	}
 }
 
