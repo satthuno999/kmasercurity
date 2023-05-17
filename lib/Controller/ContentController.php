@@ -12,8 +12,10 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 use OCP\Util;
 
-class ContentController extends Controller {
-	public function __construct(IRequest $request) {
+class ContentController extends Controller
+{
+	public function __construct(IRequest $request)
+	{
 		parent::__construct(Application::APP_ID, $request);
 	}
 
@@ -21,7 +23,8 @@ class ContentController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-	public function renderDashboard(){
+	public function renderDashboard()
+	{
 		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
 		$url = "http://14.225.254.142:8080/api/v1/models";
 		$ch = curl_init($url);
@@ -58,36 +61,11 @@ class ContentController extends Controller {
 			'historyModel' => $historyModel
 		];
 
+		extract($params);
+		ob_start();
 		$templateFile = 'views/dashboard.php';
-		$response = new PartialResponse($templateFile, $params);
-		ob_start(); // Start output buffering
-		$response->render();
-		$htmlContent = ob_get_clean(); // Capture the output and clear the buffer
-
-		echo $htmlContent;
-		return $htmlContent;
-	}
-}
-
-
-class PartialResponse
-{
-	private $templateFile;
-	private $params;
-
-	public function __construct($templateFile, $params)
-	{
-		$this->templateFile = $templateFile;
-		$this->params = $params;
-	}
-
-	public function render()
-	{
-		extract($this->params); // Extract the parameters as variables
-
-		ob_start(); // Start output buffering
-		include $this->templateFile; // Include the template file
-		$content = ob_get_clean(); // Capture the output and clear the buffer
+		include $templateFile;
+		$content = ob_get_clean();
 
 		return $content;
 	}
