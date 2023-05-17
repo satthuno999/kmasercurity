@@ -1,5 +1,6 @@
 <?php
 use OCA\KmaSercurity\Utility\Utility;
+
 /**
  * KMA SERCURITY
  *
@@ -110,7 +111,7 @@ if (isset($responseModel['data']['recall'])) {
                                 <div>
                                     <h5 class="fw-bold op-8">File Size</h5>
                                     <h3 class="fw-bold">
-                                        <?php echo Utility::formatBytes($modelSize,3) ?>
+                                        <?php echo Utility::formatBytes($modelSize, 3) ?>
                                     </h3>
                                 </div>
                             </div>
@@ -196,127 +197,127 @@ $lossData = [
 ];
 ?>
 <script>
-    window.onload = function() {
-    const id = '<?php echo $id; ?>';
-    const accuracy = <?php echo $accuracy; ?>;
-    const precision = <?php echo $precision; ?>;
-    const recall = <?php echo $recall; ?>;
-
-    $("#btn-export").click((event) => {
-        swal({
-            title: "Export",
-            buttons: {
-                h5: {
-                    text: "HDF5/H5",
-                    value: "h5",
-                    visible: true,
+    window.onload = function () {
+        const id = '<?php echo $id; ?>';
+        const accuracy = <?php echo $accuracy; ?>;
+        const precision = <?php echo $precision; ?>;
+        const recall = <?php echo $recall; ?>;
+        console.log(id);
+        $("#btn-export").click((event) => {
+            swal({
+                title: "Export",
+                buttons: {
+                    h5: {
+                        text: "HDF5/H5",
+                        value: "h5",
+                        visible: true,
+                    },
+                    tflite: {
+                        text: "TFLite",
+                        value: "tflite",
+                        visible: true,
+                    },
                 },
-                tflite: {
-                    text: "TFLite",
-                    value: "tflite",
-                    visible: true,
-                },
-            },
-        }).then((format) => {
-            location.href = `/models/${id}/source?format=${format}`;
+            }).then((format) => {
+                location.href = `/models/${id}/source?format=${format}`;
+            });
         });
-    });
-    setInterval(function () {
-        console.log("reset circle");
-        Circles.create({
-            id: "circles-1",
-            radius: 45,
-            value: accuracy,
-            maxValue: 100,
-            width: 8,
-            text: `${Math.round(accuracy)}%`,
-            colors: ["#f1f1f1", "#2BB930"],
-            duration: 400,
-            wrpClass: "circles-wrp",
-            textClass: "circles-text",
-            styleWrapper: true,
-            styleText: true,
-        });
+        setInterval(function () {
+            console.log("reset circle");
+            Circles.create({
+                id: "circles-1",
+                radius: 45,
+                value: accuracy,
+                maxValue: 100,
+                width: 8,
+                text: `${Math.round(accuracy)}%`,
+                colors: ["#f1f1f1", "#2BB930"],
+                duration: 400,
+                wrpClass: "circles-wrp",
+                textClass: "circles-text",
+                styleWrapper: true,
+                styleText: true,
+            });
 
-        Circles.create({
-            id: "circles-2",
-            radius: 45,
-            value: precision,
-            maxValue: 100,
-            width: 8,
-            text: `${Math.round(precision)}%`,
-            colors: ["#f1f1f1", "#2BB930"],
-            duration: 400,
-            wrpClass: "circles-wrp",
-            textClass: "circles-text",
-            styleWrapper: true,
-            styleText: true,
-        });
+            Circles.create({
+                id: "circles-2",
+                radius: 45,
+                value: precision,
+                maxValue: 100,
+                width: 8,
+                text: `${Math.round(precision)}%`,
+                colors: ["#f1f1f1", "#2BB930"],
+                duration: 400,
+                wrpClass: "circles-wrp",
+                textClass: "circles-text",
+                styleWrapper: true,
+                styleText: true,
+            });
 
-        Circles.create({
-            id: "circles-3",
-            radius: 45,
-            value: recall,
-            maxValue: 100,
-            width: 8,
-            text: `${Math.round(recall)}%`,
-            colors: ["#f1f1f1", "#2BB930"],
-            duration: 400,
-            wrpClass: "circles-wrp",
-            textClass: "circles-text",
-            styleWrapper: true,
-            styleText: true,
-        });
-    },3000)
+            Circles.create({
+                id: "circles-3",
+                radius: 45,
+                value: recall,
+                maxValue: 100,
+                width: 8,
+                text: `${Math.round(recall)}%`,
+                colors: ["#f1f1f1", "#2BB930"],
+                duration: 400,
+                wrpClass: "circles-wrp",
+                textClass: "circles-text",
+                styleWrapper: true,
+                styleText: true,
+            });
+        }, 3000)
 
-    // const accuracyData = [
-    //     {
-    //         x: Array.from({ length: 101 }, (x, i) => i),
-    //         y: JSON.parse('{{ model["history"]["accuracy"] | tojson }}'),
-    //         mode: "lines",
-    //         name: "train",
-    //     },
-    //     {
-    //         x: Array.from({ length: 101 }, (x, i) => i),
-    //         y: JSON.parse('{{ model["history"]["val_accuracy"] | tojson }}'),
-    //         mode: "lines",
-    //         name: "validation",
-    //     },
-    // ];
-    // const lossData = [
-    //     {
-    //         x: Array.from({ length: 101 }, (x, i) => i),
-    //         y: JSON.parse('{{ model["history"]["loss"] | tojson }}'),
-    //         mode: "lines",
-    //         name: "train",
-    //     },
-    //     {
-    //         x: Array.from({ length: 101 }, (x, i) => i),
-    //         y: JSON.parse('{{ model["history"]["val_loss"] | tojson }}'),
-    //         mode: "lines",
-    //         name: "validation",
-    //     },
-    // ];
+        // const accuracyData = [
+        //     {
+        //         x: Array.from({ length: 101 }, (x, i) => i),
+        //         y: JSON.parse('{{ model["history"]["accuracy"] | tojson }}'),
+        //         mode: "lines",
+        //         name: "train",
+        //     },
+        //     {
+        //         x: Array.from({ length: 101 }, (x, i) => i),
+        //         y: JSON.parse('{{ model["history"]["val_accuracy"] | tojson }}'),
+        //         mode: "lines",
+        //         name: "validation",
+        //     },
+        // ];
+        // const lossData = [
+        //     {
+        //         x: Array.from({ length: 101 }, (x, i) => i),
+        //         y: JSON.parse('{{ model["history"]["loss"] | tojson }}'),
+        //         mode: "lines",
+        //         name: "train",
+        //     },
+        //     {
+        //         x: Array.from({ length: 101 }, (x, i) => i),
+        //         y: JSON.parse('{{ model["history"]["val_loss"] | tojson }}'),
+        //         mode: "lines",
+        //         name: "validation",
+        //     },
+        // ];
 
-    // Plotly.newPlot("accuracy-charts", accuracyData, {
-    //     title: "Model Accuracy",
-    //     xaxis: {
-    //         title: "Epoch",
-    //     },
-    //     yaxis: {
-    //         title: "Accuracy",
-    //     },
-    // });
+        // Plotly.newPlot("accuracy-charts", accuracyData, {
+        //     title: "Model Accuracy",
+        //     xaxis: {
+        //         title: "Epoch",
+        //     },
+        //     yaxis: {
+        //         title: "Accuracy",
+        //     },
+        // });
 
-    // Plotly.newPlot("loss-charts", lossData, {
-    //     title: "Model Loss",
-    //     xaxis: {
-    //         title: "Epoch",
-    //     },
-    //     yaxis: {
-    //         title: "Loss",
-    //     },
-    // });
+        // Plotly.newPlot("loss-charts", lossData, {
+        //     title: "Model Loss",
+        //     xaxis: {
+        //         title: "Epoch",
+        //     },
+        //     yaxis: {
+        //         title: "Loss",
+        //     },
+        // });
 
     }
 </script>
