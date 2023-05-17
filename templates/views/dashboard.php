@@ -64,7 +64,7 @@ if (isset($responseModel['data']['recall'])) {
                     </h5>
                 </div>
                 <div class="ml-md-auto py-2 py-md-0">
-                    <a href="#" class="btn btn-white btn-border btn-round mr-2" id="analyze">Analyze</a>
+                    <a href="#" class="btn btn-white btn-border btn-round mr-2" id="analyzeBtn">Analyze</a>
                     <button id="btn-export" class="btn btn-secondary btn-round">Export</button>
                 </div>
             </div>

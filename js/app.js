@@ -53,6 +53,10 @@ OCA.kmasercurity.UI = {
     document.getElementById("analysis").style.display = "block";
     document.getElementById("dashboard").style.display = "none";
   },
+  handleDashboardToggleClicked: function () {
+    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("analysis").style.display = "none";
+  },
 };
 document.addEventListener("DOMContentLoaded", function () {
   var metaTag = document.createElement("meta");
@@ -74,7 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //   .catch((error) => console.log(error));
     OCA.kmasercurity.Core.init();
     document
-    .getElementById("analyze")
+    .getElementById("analyzeBtn")
     .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
+
+    document
+    .getElementById("dashboardBtn")
+    .addEventListener("click", OCA.kmasercurity.UI.handleDashboardToggleClicked);
 
 });
