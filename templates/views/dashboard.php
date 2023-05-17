@@ -51,7 +51,7 @@ if (isset($responseModel['data']['recall'])) {
     $modelRecall = $responseModel['data']['recall'];
 }
 ?>
-<div class="content" id="dashboard">
+<div class="content container" id="dashboard">
     <?php
     $uri = $_SERVER['REQUEST_URI'];
     ?>

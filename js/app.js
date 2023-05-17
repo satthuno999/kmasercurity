@@ -28,21 +28,20 @@ OCA.kmasercurity.Core = {
 
   init: function () {
     OCA.kmasercurity.Core.initialDocumentTitle = document.title;
-    document.title = "KMA LOADING";
+    document.title = "Dash board";
     if (OCA.kmasercurity.Core.AjaxCallStatus !== null) {
       OCA.kmasercurity.Core.AjaxCallStatus.abort();
     }
-    // OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
-    //   type: "GET",
-    //   url: OC.generateUrl("apps/kmasercurity/analysisTitle"),
-    //   data: {},
-    //   success: function (jsondata) {
-    //     var subTitle = "";
-    //     console.log(jsondata);
-    //       // subTitle = jsondata
-    //     // document.title = subTitle + document.title;
-    //   },
-    // });
+    OCA.kmasercurity.Core.AjaxCallStatus = $.ajax({
+      type: "GET",
+      url: OC.generateUrl("apps/kmasercurity/dashboard"),
+      data: {},
+      success: function (jsondata) {
+        console.log(jsondata);
+          // subTitle = jsondata
+        // document.title = subTitle + document.title;
+      },
+    });
   },
 };
 /**

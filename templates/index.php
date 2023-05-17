@@ -37,12 +37,8 @@ Util::addStyle('kmasercurity', 'style');
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <?php
-            print_unescaped($this->inc('views/dashboard', ['model' => $this->$data]));
-        ?>
-        <?php
-            print_unescaped($this->inc('views/analysis'));
-        ?>
+        <div class="content container" id="content-view">
+        </div>
         <?php print_unescaped($this->inc('partials/footer')); ?>
     </div>
 </div>
