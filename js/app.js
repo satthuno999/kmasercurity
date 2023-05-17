@@ -75,6 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
     OCA.kmasercurity.Core.init();
     document
     .getElementById("analyze")
-    .addEventListener("click", OCA.musicnc.UI.handleAnalyzeToggleClicked);
+    .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
 
 });
