@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //     console.log(response);
   //   })
   //   .catch((error) => console.log(error));
-  // OCA.kmasercurity.Core.init();
+  OCA.kmasercurity.Core.init();
   // document
   // .getElementById("analyzeBtn")
   // .addEventListener("click", OCA.kmasercurity.UI.handleAnalyzeToggleClicked);
