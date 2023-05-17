@@ -58,8 +58,14 @@ class ContentController extends Controller {
 			'historyModel' => $historyModel
 		];
 		
-		$response = new PartialResponse('views/dashboard.php', $params);
-		return $response;
+		$templateFile = 'views/dashboard.php';
+		$response = new PartialResponse($templateFile, $params);
+		ob_start(); // Start output buffering
+		$response->render();
+		$htmlContent = ob_get_clean(); // Capture the output and clear the buffer
+
+		echo $htmlContent;
+		return $response->render();
 	}
 }
 
