@@ -51,7 +51,7 @@ OCA.kmasercurity.Core = {
 OCA.kmasercurity.UI = {
   handleAnalyzeToggleClicked: function () {
     document.getElementById("analysis").style.display = "block";
-    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("dashboard").style.display = "none";
   },
 };
 document.addEventListener("DOMContentLoaded", function () {
