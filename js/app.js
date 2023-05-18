@@ -49,6 +49,11 @@ OCA.kmasercurity.Core = {
             "click",
             OCA.kmasercurity.UI.handleAnalyzeToggleClicked
           );
+
+          var scripts =  $(responseDoc).find("script");
+        scripts.each(function () {
+          eval($(this).text());
+        });
         OCA.kmasercurity.UI.loadingPageDone();
       },
       error: function (xhr, status, error) {
