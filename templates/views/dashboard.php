@@ -50,6 +50,41 @@ if (isset($responseModel['data']['precision'])) {
 if (isset($responseModel['data']['recall'])) {
     $modelRecall = $responseModel['data']['recall'];
 }
+
+//for script
+$accuracy = floatval($modelAccuracy) * 100;
+$precision = floatval($modelPrecision) * 100;
+$recall = floatval($modelRecall) * 100;
+
+$accuracyData = [
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['accuracy'],
+        "mode" => "lines",
+        "name" => "train"
+    ],
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['val_accuracy'],
+        "mode" => "lines",
+        "name" => "validation"
+    ]
+];
+
+$lossData = [
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['loss'],
+        "mode" => "lines",
+        "name" => "train"
+    ],
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['val_loss'],
+        "mode" => "lines",
+        "name" => "validation"
+    ]
+];
 ?>
 <div class="content dashboard" id="content-view">
     <div class="panel-header bg-primary-gradient">
@@ -155,164 +190,130 @@ if (isset($responseModel['data']['recall'])) {
             </div>
         </div>
     </div>
+
+    <script>
+        function excuteScript() {
+            const id = '<?php echo $id; ?>';
+            const accuracy = <?php echo $accuracy; ?>;
+            const precision = <?php echo $precision; ?>;
+            const recall = <?php echo $recall; ?>;
+            console.log(id);
+            // $("#btn-export").click((event) => {
+            //     swal({
+            //         title: "Export",
+            //         buttons: {
+            //             h5: {
+            //                 text: "HDF5/H5",
+            //                 value: "h5",
+            //                 visible: true,
+            //             },
+            //             tflite: {
+            //                 text: "TFLite",
+            //                 value: "tflite",
+            //                 visible: true,
+            //             },
+            //         },
+            //     }).then((format) => {
+            //         location.href = `/models/${id}/source?format=${format}`;
+            //     });
+            // });
+            setInterval(function () {
+                console.log("reset circle");
+                Circles.create({
+                    id: "circles-1",
+                    radius: 45,
+                    value: accuracy,
+                    maxValue: 100,
+                    width: 8,
+                    text: `${Math.round(accuracy)}%`,
+                    colors: ["#f1f1f1", "#2BB930"],
+                    duration: 400,
+                    wrpClass: "circles-wrp",
+                    textClass: "circles-text",
+                    styleWrapper: true,
+                    styleText: true,
+                });
+
+                Circles.create({
+                    id: "circles-2",
+                    radius: 45,
+                    value: precision,
+                    maxValue: 100,
+                    width: 8,
+                    text: `${Math.round(precision)}%`,
+                    colors: ["#f1f1f1", "#2BB930"],
+                    duration: 400,
+                    wrpClass: "circles-wrp",
+                    textClass: "circles-text",
+                    styleWrapper: true,
+                    styleText: true,
+                });
+
+                Circles.create({
+                    id: "circles-3",
+                    radius: 45,
+                    value: recall,
+                    maxValue: 100,
+                    width: 8,
+                    text: `${Math.round(recall)}%`,
+                    colors: ["#f1f1f1", "#2BB930"],
+                    duration: 400,
+                    wrpClass: "circles-wrp",
+                    textClass: "circles-text",
+                    styleWrapper: true,
+                    styleText: true,
+                });
+            }, 3000)
+
+            // const accuracyData = [
+            //     {
+            //         x: Array.from({ length: 101 }, (x, i) => i),
+            //         y: JSON.parse('{{ model["history"]["accuracy"] | tojson }}'),
+            //         mode: "lines",
+            //         name: "train",
+            //     },
+            //     {
+            //         x: Array.from({ length: 101 }, (x, i) => i),
+            //         y: JSON.parse('{{ model["history"]["val_accuracy"] | tojson }}'),
+            //         mode: "lines",
+            //         name: "validation",
+            //     },
+            // ];
+            // const lossData = [
+            //     {
+            //         x: Array.from({ length: 101 }, (x, i) => i),
+            //         y: JSON.parse('{{ model["history"]["loss"] | tojson }}'),
+            //         mode: "lines",
+            //         name: "train",
+            //     },
+            //     {
+            //         x: Array.from({ length: 101 }, (x, i) => i),
+            //         y: JSON.parse('{{ model["history"]["val_loss"] | tojson }}'),
+            //         mode: "lines",
+            //         name: "validation",
+            //     },
+            // ];
+
+            // Plotly.newPlot("accuracy-charts", accuracyData, {
+            //     title: "Model Accuracy",
+            //     xaxis: {
+            //         title: "Epoch",
+            //     },
+            //     yaxis: {
+            //         title: "Accuracy",
+            //     },
+            // });
+
+            // Plotly.newPlot("loss-charts", lossData, {
+            //     title: "Model Loss",
+            //     xaxis: {
+            //         title: "Epoch",
+            //     },
+            //     yaxis: {
+            //         title: "Loss",
+            //     },
+            // });
+
+        };
+    </script>
 </div>
-<?php
-$accuracy = floatval($modelAccuracy) * 100;
-$precision = floatval($modelPrecision) * 100;
-$recall = floatval($modelRecall) * 100;
-
-$accuracyData = [
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['accuracy'],
-        "mode" => "lines",
-        "name" => "train"
-    ],
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['val_accuracy'],
-        "mode" => "lines",
-        "name" => "validation"
-    ]
-];
-
-$lossData = [
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['loss'],
-        "mode" => "lines",
-        "name" => "train"
-    ],
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['val_loss'],
-        "mode" => "lines",
-        "name" => "validation"
-    ]
-];
-?>
-<script>
-    window.onload = function () {
-        const id = '<?php echo $id; ?>';
-        const accuracy = <?php echo $accuracy; ?>;
-        const precision = <?php echo $precision; ?>;
-        const recall = <?php echo $recall; ?>;
-        console.log(id);
-        $("#btn-export").click((event) => {
-            swal({
-                title: "Export",
-                buttons: {
-                    h5: {
-                        text: "HDF5/H5",
-                        value: "h5",
-                        visible: true,
-                    },
-                    tflite: {
-                        text: "TFLite",
-                        value: "tflite",
-                        visible: true,
-                    },
-                },
-            }).then((format) => {
-                location.href = `/models/${id}/source?format=${format}`;
-            });
-        });
-        setInterval(function () {
-            console.log("reset circle");
-            Circles.create({
-                id: "circles-1",
-                radius: 45,
-                value: accuracy,
-                maxValue: 100,
-                width: 8,
-                text: `${Math.round(accuracy)}%`,
-                colors: ["#f1f1f1", "#2BB930"],
-                duration: 400,
-                wrpClass: "circles-wrp",
-                textClass: "circles-text",
-                styleWrapper: true,
-                styleText: true,
-            });
-
-            Circles.create({
-                id: "circles-2",
-                radius: 45,
-                value: precision,
-                maxValue: 100,
-                width: 8,
-                text: `${Math.round(precision)}%`,
-                colors: ["#f1f1f1", "#2BB930"],
-                duration: 400,
-                wrpClass: "circles-wrp",
-                textClass: "circles-text",
-                styleWrapper: true,
-                styleText: true,
-            });
-
-            Circles.create({
-                id: "circles-3",
-                radius: 45,
-                value: recall,
-                maxValue: 100,
-                width: 8,
-                text: `${Math.round(recall)}%`,
-                colors: ["#f1f1f1", "#2BB930"],
-                duration: 400,
-                wrpClass: "circles-wrp",
-                textClass: "circles-text",
-                styleWrapper: true,
-                styleText: true,
-            });
-        }, 3000)
-
-        // const accuracyData = [
-        //     {
-        //         x: Array.from({ length: 101 }, (x, i) => i),
-        //         y: JSON.parse('{{ model["history"]["accuracy"] | tojson }}'),
-        //         mode: "lines",
-        //         name: "train",
-        //     },
-        //     {
-        //         x: Array.from({ length: 101 }, (x, i) => i),
-        //         y: JSON.parse('{{ model["history"]["val_accuracy"] | tojson }}'),
-        //         mode: "lines",
-        //         name: "validation",
-        //     },
-        // ];
-        // const lossData = [
-        //     {
-        //         x: Array.from({ length: 101 }, (x, i) => i),
-        //         y: JSON.parse('{{ model["history"]["loss"] | tojson }}'),
-        //         mode: "lines",
-        //         name: "train",
-        //     },
-        //     {
-        //         x: Array.from({ length: 101 }, (x, i) => i),
-        //         y: JSON.parse('{{ model["history"]["val_loss"] | tojson }}'),
-        //         mode: "lines",
-        //         name: "validation",
-        //     },
-        // ];
-
-        // Plotly.newPlot("accuracy-charts", accuracyData, {
-        //     title: "Model Accuracy",
-        //     xaxis: {
-        //         title: "Epoch",
-        //     },
-        //     yaxis: {
-        //         title: "Accuracy",
-        //     },
-        // });
-
-        // Plotly.newPlot("loss-charts", lossData, {
-        //     title: "Model Loss",
-        //     xaxis: {
-        //         title: "Epoch",
-        //     },
-        //     yaxis: {
-        //         title: "Loss",
-        //     },
-        // });
-
-    }
-</script>
