@@ -139,12 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     $("#content-view-wrapper").on("DOMSubtreeModified", function() {
-      // Check if the excuteScript function is defined
-      if (typeof excuteScript === 'function') {
-        // Call the excuteScript function
         excuteScript();
-      } else {
-        console.log('No script')
-      }
     });
 });
