@@ -73,4 +73,47 @@ class ContentController extends Controller
 		$response = new TemplateResponse('kmasercurity', 'views/analysis');
 		return $response;
 	}
+	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function analyzeFile()
+	{
+		$uploadedFile = $_FILES['file'];
+		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
+		$url = "http://14.225.254.142:8080/api/v1/windows/applications";
+		// Create a CURLFile object with the file path
+		$file = new CURLFile($uploadedFile);
+
+		// Create a new cURL resource
+		$curl = curl_init();
+
+		// Set the API endpoint URL
+		curl_setopt($curl, CURLOPT_URL, $url);
+
+		// Set the request method to POST
+		curl_setopt($curl, CURLOPT_POST, true);
+
+		// Set the file data as the POST payload
+		$postData = array('file' => $file);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+
+		// Execute the request
+		$data = curl_exec($curl);
+
+		// Check for errors
+		if (curl_errno($curl)) {
+			$error = curl_error($curl);
+			// Handle the error
+		}
+
+		// Close the cURL resource
+		curl_close($curl);
+
+		$params = [
+			'data' => $data,
+		];
+		$response = new TemplateResponse('kmasercurity', 'views/analysis_detail', $params);
+		return $response;
+	}
 }

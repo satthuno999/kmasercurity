@@ -91,19 +91,24 @@ OCA.kmasercurity.Core = {
 
         function analyze(file) {
           const formData = new FormData();
-
+          const urlPost = OC.generateUrl("apps/kmasercurity/analyzeFile");
           formData.append('file', file);
+
           notify('Analyzing... This analysis may take a few minutes', 'primary');
-          fetch(`/dashboard/analysis/`, {
+          fetch(urlPost, {
             method: 'POST',
             body: formData,
           })
             .then((response) => response.json())
             .then((response) => {
-              const analysis_id = response['data']['analysis_id']
-
+              // const analysis_id = response['data']['analysis_id']
+              var parser = new DOMParser();
+              var responseDoc = parser.parseFromString(jsondata, "text/html");
+              var content = responseDoc.getElementById("content-view");
+              $("#content-view-wrapper").html(content);
+              
               notify("Analyze application successfully! We will redirect in a few seconds", 'success');
-              setTimeout(() => { location.href = `/dashboard/analysis/${analysis_id}/` }, 1500)
+              // setTimeout(() => { location.href = `/dashboard/analysis/${analysis_id}/` }, 1500)
             })
             .catch((error) => notify(error, 'danger'));
         }

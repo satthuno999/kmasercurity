@@ -19,6 +19,9 @@ return [
 		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
 		
 		['name' => 'content#renderDashboard', 'url' => '/dashboard', 'verb' => 'GET'],
-		['name' => 'content#renderAnalyze', 'url' => '/analyze', 'verb' => 'GET']
+		['name' => 'content#renderAnalyze', 'url' => '/analyze', 'verb' => 'GET'],
+
+		
+		['name' => 'content#analyzeFile', 'url' => '/analyzeFile', 'verb' => 'POST']
 	]
 ];
