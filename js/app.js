@@ -54,12 +54,13 @@ OCA.kmasercurity.Core = {
         scripts.each(function () {
           eval($(this).text());
         });
-        OCA.kmasercurity.UI.loadingPageDone();
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
       },
     });
+    
+    OCA.kmasercurity.UI.loadingPageDone();
   },
 
   showAnalyze: function () {
