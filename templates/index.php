@@ -18,7 +18,7 @@ Util::addStyle('kmasercurity', 'atlantis');
 
 Util::addStyle('kmasercurity', 'style');
 ?>
-<!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+<meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
