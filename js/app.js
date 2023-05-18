@@ -54,7 +54,7 @@ OCA.kmasercurity.Core = {
         var tempContainer = document.createElement("div");
         tempContainer.innerHTML = responseDoc;
 
-        var scripts = responseDoc.getElementsByTagName("script");
+        var scripts = content.getElementsByTagName("script");
         for (var i = 0; i < scripts.length; i++) {
           var script = document.createElement("script");
           script.textContent = scripts[i].textContent;
