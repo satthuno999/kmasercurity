@@ -138,7 +138,11 @@ document.addEventListener("DOMContentLoaded", function () {
       OCA.kmasercurity.UI.handleDashboardToggleClicked
     );
 
-  $("#content-view-wrapper").on('change', function () {
+  // Trigger a custom event to indicate the HTML change
+  $("#content-view-wrapper").trigger("htmlChange");
+
+  // Add an event listener for the custom event
+  $("#content-view-wrapper").on("htmlChange", function () {
     // Check if the excuteScript function is defined
     if (typeof excuteScript === 'function') {
       // Call the excuteScript function
