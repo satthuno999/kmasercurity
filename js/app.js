@@ -61,7 +61,7 @@ OCA.kmasercurity.Core = {
           document.head.appendChild(script);
         }
         
-        excuteScript();
+        // excuteScript();
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
