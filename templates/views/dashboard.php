@@ -10,6 +10,7 @@ use OCA\KmaSercurity\Utility\Utility;
  * @author S P A R K <binh9aqktk@gmail.com>
  * @copyright 2022-2023 S P A R K
  */
+use OCP\Util;
 
 $responseData = json_decode($data, true);
 if (isset($responseData['data'][0]['id'])) {
@@ -51,40 +52,7 @@ if (isset($responseModel['data']['recall'])) {
     $modelRecall = $responseModel['data']['recall'];
 }
 
-//for script
-$accuracy = floatval($modelAccuracy) * 100;
-$precision = floatval($modelPrecision) * 100;
-$recall = floatval($modelRecall) * 100;
 
-$accuracyData = [
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['accuracy'],
-        "mode" => "lines",
-        "name" => "train"
-    ],
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['val_accuracy'],
-        "mode" => "lines",
-        "name" => "validation"
-    ]
-];
-
-$lossData = [
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['loss'],
-        "mode" => "lines",
-        "name" => "train"
-    ],
-    [
-        "x" => range(0, 100),
-        "y" => json_decode($historyModel, true)['val_loss'],
-        "mode" => "lines",
-        "name" => "validation"
-    ]
-];
 ?>
 <div class="content dashboard" id="content-view">
     <div class="panel-header bg-primary-gradient">
@@ -317,3 +285,97 @@ $lossData = [
         };
     </script>
 </div>
+<?php
+//for script
+$accuracy = floatval($modelAccuracy) * 100;
+$precision = floatval($modelPrecision) * 100;
+$recall = floatval($modelRecall) * 100;
+
+$accuracyData = [
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['accuracy'],
+        "mode" => "lines",
+        "name" => "train"
+    ],
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['val_accuracy'],
+        "mode" => "lines",
+        "name" => "validation"
+    ]
+];
+
+$lossData = [
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['loss'],
+        "mode" => "lines",
+        "name" => "train"
+    ],
+    [
+        "x" => range(0, 100),
+        "y" => json_decode($historyModel, true)['val_loss'],
+        "mode" => "lines",
+        "name" => "validation"
+    ]
+];
+
+$functionCode = `
+function excuteScript() {
+    const id = '{$id}';
+    const accuracy = {$accuracy};
+    const precision = {$precision};
+    const recall = {$recall};
+    console.log(id);
+    console.log("reset circle");
+    Circles.create({
+        id: "circles-1",
+        radius: 45,
+        value: accuracy,
+        maxValue: 100,
+        width: 8,
+        text: ${Math.round(accuracy)}%,
+        colors: ["#f1f1f1", "#2BB930"],
+        duration: 400,
+        wrpClass: "circles-wrp",
+        textClass: "circles-text",
+        styleWrapper: true,
+        styleText: true,
+    });
+
+    Circles.create({
+        id: "circles-2",
+        radius: 45,
+        value: precision,
+        maxValue: 100,
+        width: 8,
+        text: ${Math.round(precision)}%,
+        colors: ["#f1f1f1", "#2BB930"],
+        duration: 400,
+        wrpClass: "circles-wrp",
+        textClass: "circles-text",
+        styleWrapper: true,
+        styleText: true,
+    });
+
+    Circles.create({
+        id: "circles-3",
+        radius: 45,
+        value: recall,
+        maxValue: 100,
+        width: 8,
+        text: ${Math.round(recall)}%,
+        colors: ["#f1f1f1", "#2BB930"],
+        duration: 400,
+        wrpClass: "circles-wrp",
+        textClass: "circles-text",
+        styleWrapper: true,
+        styleText: true,
+    });
+};
+`;
+
+// Adding the function code using Util::addScript
+Util::addScript($functionCode);
+?>
