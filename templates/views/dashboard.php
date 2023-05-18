@@ -185,8 +185,7 @@ if (isset($responseModel['data']['recall'])) {
             //         location.href = `/models/${id}/source?format=${format}`;
             //     });
             // });
-            setInterval(function () {
-                console.log("reset circle");
+            console.log("reset circle");
                 Circles.create({
                     id: "circles-1",
                     radius: 45,
@@ -231,7 +230,6 @@ if (isset($responseModel['data']['recall'])) {
                     styleWrapper: true,
                     styleText: true,
                 });
-            }, 3000)
 
             // const accuracyData = [
             //     {

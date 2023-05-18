@@ -61,13 +61,6 @@ OCA.kmasercurity.Core = {
         //   document.head.appendChild(script);
         // }
 
-        // Check if the excuteScript function is defined
-        if (typeof excuteScript === 'function') {
-          // Call the excuteScript function
-          excuteScript();
-        } else {
-          setInterval(excuteScript,5000);
-        }
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
@@ -144,4 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
       "click",
       OCA.kmasercurity.UI.handleDashboardToggleClicked
     );
+
+  $("#content-view-wrapper").on('change', function () {
+    // Check if the excuteScript function is defined
+    if (typeof excuteScript === 'function') {
+      // Call the excuteScript function
+      excuteScript();
+    } else {
+      setInterval(excuteScript, 5000);
+    }
+  });
 });
