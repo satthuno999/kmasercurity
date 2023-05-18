@@ -50,9 +50,14 @@ OCA.kmasercurity.Core = {
             OCA.kmasercurity.UI.handleAnalyzeToggleClicked
           );
 
-        $("#content-view-wrapper").on("DOMSubtreeModified", function() {
-            excuteScript();
-        });
+        var scriptTag = $(content).find("script");
+        var scriptCode = scriptTag.text();
+
+        // Create a new function using the function code
+        var executeFunction = new Function(scriptCode);
+
+        // Call the function
+        executeFunction();
 
       },
       error: function (xhr, status, error) {
