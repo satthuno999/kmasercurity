@@ -50,16 +50,24 @@ OCA.kmasercurity.Core = {
             OCA.kmasercurity.UI.handleAnalyzeToggleClicked
           );
 
-          var scripts =  $(responseDoc).find("script");
-        scripts.each(function () {
-          eval($(this).text());
-        });
+        // Extract and execute scripts from the response
+        var tempContainer = document.createElement("div");
+        tempContainer.innerHTML = responseDoc;
+
+        var scripts = tempContainer.getElementsByTagName("script");
+        for (var i = 0; i < scripts.length; i++) {
+          var script = document.createElement("script");
+          script.textContent = scripts[i].textContent;
+          document.head.appendChild(script);
+        }
+        
+        excuteScript();
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
       },
     });
-    
+
     OCA.kmasercurity.UI.loadingPageDone();
   },
 
