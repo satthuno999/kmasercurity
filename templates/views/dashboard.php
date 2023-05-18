@@ -192,31 +192,31 @@ $lossData = [
 ];
 ?>
 <script>
-    function excuteScript() {
+    window.onload = function () {
         const id = '<?php echo $id; ?>';
         const accuracy = <?php echo $accuracy; ?>;
         const precision = <?php echo $precision; ?>;
         const recall = <?php echo $recall; ?>;
         console.log(id);
-        // $("#btn-export").click((event) => {
-        //     swal({
-        //         title: "Export",
-        //         buttons: {
-        //             h5: {
-        //                 text: "HDF5/H5",
-        //                 value: "h5",
-        //                 visible: true,
-        //             },
-        //             tflite: {
-        //                 text: "TFLite",
-        //                 value: "tflite",
-        //                 visible: true,
-        //             },
-        //         },
-        //     }).then((format) => {
-        //         location.href = `/models/${id}/source?format=${format}`;
-        //     });
-        // });
+        $("#btn-export").click((event) => {
+            swal({
+                title: "Export",
+                buttons: {
+                    h5: {
+                        text: "HDF5/H5",
+                        value: "h5",
+                        visible: true,
+                    },
+                    tflite: {
+                        text: "TFLite",
+                        value: "tflite",
+                        visible: true,
+                    },
+                },
+            }).then((format) => {
+                location.href = `/models/${id}/source?format=${format}`;
+            });
+        });
         setInterval(function () {
             console.log("reset circle");
             Circles.create({
