@@ -66,7 +66,7 @@ OCA.kmasercurity.Core = {
           // Call the excuteScript function
           excuteScript();
         } else {
-          console.log("excuteScript is not defined");
+          setInterval(excuteScript,5000);
         }
       },
       error: function (xhr, status, error) {
