@@ -50,18 +50,24 @@ OCA.kmasercurity.Core = {
             OCA.kmasercurity.UI.handleAnalyzeToggleClicked
           );
 
-        // // Extract and execute scripts from the response
-        // var tempContainer = document.createElement("div");
-        // tempContainer.innerHTML = responseDoc;
+        // Extract and execute scripts from the response
+        var tempContainer = document.createElement("div");
+        tempContainer.innerHTML = responseDoc;
 
-        // var scripts = tempContainer.getElementsByTagName("script");
-        // for (var i = 0; i < scripts.length; i++) {
-        //   var script = document.createElement("script");
-        //   script.textContent = scripts[i].textContent;
-        //   document.head.appendChild(script);
-        // }
-        
-        excuteScript();
+        var scripts = tempContainer.getElementsByTagName("script");
+        for (var i = 0; i < scripts.length; i++) {
+          var script = document.createElement("script");
+          script.textContent = scripts[i].textContent;
+          document.head.appendChild(script);
+        }
+
+        // Check if the excuteScript function is defined
+        if (typeof excuteScript === 'function') {
+          // Call the excuteScript function
+          excuteScript();
+        } else {
+          console.log("excuteScript is not defined");
+        }
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
