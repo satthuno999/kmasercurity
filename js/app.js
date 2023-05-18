@@ -108,11 +108,8 @@ OCA.kmasercurity.UI = {
 document.addEventListener("DOMContentLoaded", function () {
   var metaTag = document.createElement("meta");
   metaTag.setAttribute("http-equiv", "Content-Security-Policy");
-  metaTag.setAttribute(
-    "content",
-    "default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"
-  );
-
+  metaTag.setAttribute("content","default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;");
+  console.log(metaTag);
   document.head.appendChild(metaTag);
 
   // fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
