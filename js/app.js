@@ -58,9 +58,12 @@ OCA.kmasercurity.Core = {
               // Append the script element to the document body
               document.body.appendChild(script);
             }
+            else{
+              console.log(response.msg)
+            }
           },
           error: function(){
-
+            console.log("AJAX ERROR")
           }
         });
         // Append the script element to the HTML body or any other desired location

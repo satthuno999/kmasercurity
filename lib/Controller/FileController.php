@@ -34,30 +34,31 @@ class FileController extends Controller {
         $appPath = \OC_App::getAppPath('kmasercurity');
         $folderPath = $appPath . $folderName;
         $filePath = $folderPath . '/' . $fileName;
-
-        try{
-    
-            // Create the file within the folder
+        $msg ="";
+        try {
             // Check if the folder exists
             if (!Filesystem::is_dir($folderPath)) {
                 // Folder does not exist, create it
                 Filesystem::mkdir($folderPath);
             }
+        
+            // Create or update the file with the given content
             Filesystem::file_put_contents($filePath, $fileContent);
-    
+        
             // Set appropriate permissions for the folder and file
             Filesystem::chmod($folderPath, 0755);
             Filesystem::chmod($filePath, 0644);
+        
             $status = "success";
-        }
-        catch{
+        } catch (\Exception $e) {
             $status = "error";
-
+            $msg="Error: $e";
         }
 
         $result = [
             'status' => $status,
             'filePath' => $filePath,
+            'msg' => $msg,
         ]
         return new JSONResponse($result);
     }
