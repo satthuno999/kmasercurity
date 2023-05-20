@@ -30,8 +30,18 @@ class FileController extends Controller {
 	}
     private function getServerBaseUrl()
     {
-        // Replace with the actual base URL of your Nextcloud installation
-        return 'http://192.168.1.5/nextcloud';
+        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+            $protocol = "https://";
+        } else {
+            $protocol = "http://";
+        }
+        $host = $_SERVER['HTTP_HOST'];
+
+        // Retrieve the script name (e.g., "/nextcloud/index.php")
+        $scriptName = $_SERVER['SCRIPT_NAME'];
+        $baseUrl = $protocol . $host . rtrim(dirname($scriptName), '/');
+
+        return $baseUrl;
     }
 	/**
      * Add file js
@@ -71,7 +81,7 @@ class FileController extends Controller {
             $status = "success";
             $path = $userFolder->getRelativePath($file->getPath());
             $encodedPath = implode('/', array_map('rawurlencode', explode('/', $path)));
-            $filePath = $this->getServerBaseUrl() . '/remote.php/dav/files/' . $this->userId . '/' . $encodedPath;
+            $filePath = $this->getServerBaseUrl() . '/remote.php/dav/files/' . $this->userId . $encodedPath;
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
