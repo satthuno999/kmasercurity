@@ -9,13 +9,23 @@ use OCA\KmaSercurity\AppInfo\Application;
 use OC\Files\Filesystem;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Controller;
+use OCP\Files\IRootFolder;
 use OCP\IRequest;
 use OCP\Util;
 use stdClass;
 
 class FileController extends Controller {
-	public function __construct(IRequest $request) {
+    private $rootFolder;
+    private $userId;
+	public function __construct(
+        $appName,
+        IRequest $request,
+    IRootFolder $rootFolder,
+    $userId) {
 		parent::__construct(Application::APP_ID, $request);
+        $this->userId = $userId;
+        $this->rootFolder = $rootFolder;
+
 	}
 
 	/**
@@ -36,23 +46,22 @@ class FileController extends Controller {
         $filePath = $folderPath . '/' . $fileName;
         $msg ="";
         try {
-            // Check if the folder exists
-            if (!Filesystem::is_dir($folderPath)) {
-                // Folder does not exist, create it
-                Filesystem::mkdir($folderPath);
+            $root = $this->rootFolder->getUserFolder();
+            $folder = $root->get($folderName);
+            
+            // Check if the folder exists, and create it if it doesn't
+            if (!$folder) {
+                $folder = $root->newFolder($folderName);
             }
-        
-            // Create or update the file with the given content
-            Filesystem::file_put_contents($filePath, $fileContent);
-        
-            // Set appropriate permissions for the folder and file
-            Filesystem::chmod($folderPath, 0755);
-            Filesystem::chmod($filePath, 0644);
+            
+            // Add or update the file with the given content
+            $file = $folder->newFile($fileName);
+            $file->putContent($fileContent);    
         
             $status = "success";
         } catch (\Exception $e) {
             $status = "error";
-            $msg="Error: $e";
+            $msg="Error: ".$e->getMessage();
         }
 
         $result = [
