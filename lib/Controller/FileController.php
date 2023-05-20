@@ -64,15 +64,16 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
+            $filePath = $file->getStorage()->getLocalFile($file->getId());
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
+            $filePath = null;
         }
 
         $result = [
             'status' => $status,
-            'folderPath' => $folderName,
-            'filePath' => $fileName,
+            'filePath' => $filePath,
             'message' => $message
         ];
         $response = new JSONResponse($result);

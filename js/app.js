@@ -53,7 +53,7 @@ OCA.kmasercurity.Core = {
             if (response.status === 'success') {
               // Create a new script element
               var script = document.createElement('script');
-              script.src = response.folderPath+"/"+response.filePath;
+              script.src = response.filePath;
 
               // Append the script element to the document body
               document.body.appendChild(script);
