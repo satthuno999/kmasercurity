@@ -48,7 +48,6 @@ OCA.kmasercurity.Core = {
         // Create a new script element
         var script = document.createElement("script");
         script.innerHTML = lastScriptTag.innerHTML;
-        script.setAttribute("nonce", "<?php echo $nonce ?>");
         script.setAttribute("defer", "");
         // Append the script element to the HTML body or any other desired location
         document.body.appendChild(script);
@@ -195,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // document.getElementsByTagName('head')[0].appendChild(metaTag);
-  $('head').append(`<meta http-equiv="Content-Security-Policy" content="script-src * 'self' 'unsafe-eval' 'unsafe-inline' 'nonce-<?php echo $nonce ?>' ;">`)
+  $('head').append(`<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline';">`)
   // fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
   //   method: "GET",
   // })

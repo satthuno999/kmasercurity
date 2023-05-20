@@ -10,12 +10,6 @@ Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
 
 // $model = json_decode($data);
-
-// Generate a random nonce value
-$nonce = bin2hex(random_bytes(16));
-
-// Set the Content-Security-Policy header with the nonce value
-header("Content-Security-Policy: script-src 'self' 'nonce-" . $nonce . "';");
 ?>
 <?php
 Util::addStyle('kmasercurity', 'bootstrap.min');
