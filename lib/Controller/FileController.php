@@ -96,7 +96,7 @@ class FileController extends Controller {
             file_put_contents($filePath, $fileContent);
 
             $status = 'success';
-            $filePath = './js/bin' . $fileName;
+            $filePath = './js/bin/' . $fileName;
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
