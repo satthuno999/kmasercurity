@@ -64,7 +64,7 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
-            $filePath = $file->getPublicLink();
+            $filePath = $file->getDownloadUrl();
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
