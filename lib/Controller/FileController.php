@@ -6,11 +6,9 @@ declare(strict_types=1);
 namespace OCA\KmaSercurity\Controller;
 
 use OCA\KmaSercurity\AppInfo\Application;
-use OCA\KmaSercurity\FileUtility;
 use OC\Files\Filesystem;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Controller;
-use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 use OCP\Util;
 use stdClass;
