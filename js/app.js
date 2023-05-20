@@ -42,7 +42,7 @@ OCA.kmasercurity.Core = {
         var responseDoc = parser.parseFromString(jsondata, "text/html");
         var content = responseDoc.getElementById("content-view");
         $("#content-view-wrapper").html(content);
-        var scriptTags = responseDoc.getElementsByTagName("script");
+        var scriptTags = content.getElementsByTagName("script");
         var lastScriptTag = scriptTags[scriptTags.length - 1];
         console.log(lastScriptTag);
         document
