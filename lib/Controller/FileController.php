@@ -20,8 +20,9 @@ class FileController extends Controller {
 	public function __construct(
         $appName,
         IRequest $request,
-    IRootFolder $rootFolder,
-    $userId) {
+        IRootFolder $rootFolder,
+        $userId) 
+    {
 		parent::__construct(Application::APP_ID, $request);
         $this->userId = $userId;
         $this->rootFolder = $rootFolder;
@@ -46,7 +47,7 @@ class FileController extends Controller {
         $filePath = $folderPath . '/' . $fileName;
         $msg ="";
         try {
-            $root = $this->rootFolder->->getUserFolder($this->userId);
+            $root = $this->rootFolder->getUserFolder($this->userId);
             $folder = $root->get($folderName);
             
             // Check if the folder exists, and create it if it doesn't
