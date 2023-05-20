@@ -79,4 +79,16 @@ class FileController extends Controller {
         $response = new JSONResponse($result);
         return $response;
     }
+
+    private function getDownloadUrl($file)
+    {
+        $view = new \OC\Files\View('/');
+        $path = $view->getAbsolutePath($file->getPath());
+        $token = $view->getFileInfo($path)['fileid'];
+        $downloadUrl = \OC::$server->getURLGenerator()->linkToRoute(
+            'download',
+            ['file' => $token]
+        );
+        return $downloadUrl;
+    }
 }
