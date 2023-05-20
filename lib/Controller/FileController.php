@@ -7,6 +7,8 @@ namespace OCA\KmaSercurity\Controller;
 
 use OCA\KmaSercurity\AppInfo\Application;
 use OCA\KmaSercurity\FileUtility;
+use OC\Files\Filesystem;
+use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
