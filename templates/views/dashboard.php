@@ -160,11 +160,10 @@ if (isset($responseModel['data']['recall'])) {
     </div>
 
     <script>
-        function excuteScript() {
-            const id = '<?php echo $id; ?>';
-            const accuracy = <?php echo $accuracy; ?>;
-            const precision = <?php echo $precision; ?>;
-            const recall = <?php echo $recall; ?>;
+         const id = '<?php echo $id; ?>';
+            const accuracy = <?php echo $modelAccuracy; ?>;
+            const precision = <?php echo $modelPrecision; ?>;
+            const recall = <?php echo $modelRecall; ?>;
             console.log(id);
             // $("#btn-export").click((event) => {
             //     swal({
@@ -279,7 +278,5 @@ if (isset($responseModel['data']['recall'])) {
             //         title: "Loss",
             //     },
             // });
-
-        };
     </script>
 </div>
