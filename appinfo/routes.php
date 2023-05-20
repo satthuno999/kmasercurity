@@ -22,7 +22,7 @@ return [
 		['name' => 'content#renderAnalyze', 'url' => '/analyze', 'verb' => 'GET'],
 
 		
-		['name' => 'content#analyzeFile', 'url' => '/analyzeFile', 'verb' => 'POST']
+		['name' => 'content#analyzeFile', 'url' => '/analyzeFile', 'verb' => 'POST'],
 		['name' => 'file#addJsFile', 'url' => '/addjscontentfile', 'verb' => 'POST']
 		
 	]
