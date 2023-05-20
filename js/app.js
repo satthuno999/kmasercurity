@@ -74,7 +74,9 @@ OCA.kmasercurity.Core = {
         // });
 
         var script = document.createElement("script");
-        script.innerHTML = lastScriptTag.innerHTML;
+        script.innerHTML = OCA.kmasercurity.UI.minifyJavaScript(
+          lastScriptTag.innerHTML
+        );
 
         // Append the script element to the document body
         document.body.appendChild(script);
@@ -85,8 +87,6 @@ OCA.kmasercurity.Core = {
             "click",
             OCA.kmasercurity.UI.handleAnalyzeToggleClicked
           );
-
-
       },
       error: function (xhr, status, error) {
         console.log("AJAX request error:", error);
@@ -117,8 +117,9 @@ OCA.kmasercurity.Core = {
           ev.preventDefault();
           if (ev.dataTransfer.items) {
             [...ev.dataTransfer.items].forEach((item, i) => {
-              const isFile = item.kind === 'file';
-              const isAPK = item.kind === 'application/vnd.android.package-archive';
+              const isFile = item.kind === "file";
+              const isAPK =
+                item.kind === "application/vnd.android.package-archive";
 
               if (isFile && isAPK) {
                 analyze(item.getAsFile());
@@ -130,11 +131,14 @@ OCA.kmasercurity.Core = {
         function analyze(file) {
           const formData = new FormData();
           const urlPost = OC.generateUrl("apps/kmasercurity/analyzeFile");
-          formData.append('file', file);
+          formData.append("file", file);
 
-          notify('Analyzing... This analysis may take a few minutes', 'primary');
+          notify(
+            "Analyzing... This analysis may take a few minutes",
+            "primary"
+          );
           fetch(urlPost, {
-            method: 'POST',
+            method: "POST",
             body: formData,
           })
             .then((response) => response.json())
@@ -145,24 +149,27 @@ OCA.kmasercurity.Core = {
               var content = responseDoc.getElementById("content-view");
               $("#content-view-wrapper").html(content);
 
-              notify("Analyze application successfully! We will redirect in a few seconds", 'success');
+              notify(
+                "Analyze application successfully! We will redirect in a few seconds",
+                "success"
+              );
               // setTimeout(() => { location.href = `/dashboard/analysis/${analysis_id}/` }, 1500)
             })
-            .catch((error) => notify(error, 'danger'));
+            .catch((error) => notify(error, "danger"));
         }
 
         function notify(message, type) {
           const content = {
-            title: 'K-Security',
+            title: "K-Security",
             message: message,
-            icon: 'flaticon-alarm-1',
+            icon: "flaticon-alarm-1",
           };
 
           $.notify(content, {
             type: type,
             placement: {
-              from: 'bottom',
-              align: 'right',
+              from: "bottom",
+              align: "right",
             },
             time: 1000,
           });
@@ -172,20 +179,20 @@ OCA.kmasercurity.Core = {
           ev.preventDefault();
         }
 
-        const input = $(document.createElement('input'));
+        const input = $(document.createElement("input"));
 
-        input.on('change', function () {
+        input.on("change", function () {
           const file = input[0].files[0];
 
           if (file) {
             analyze(file);
           }
         });
-        input.attr('type', 'file');
-        input.attr('accept', '.apk');
+        input.attr("type", "file");
+        input.attr("accept", ".apk");
 
-        $('#apk-files').on('click', function () {
-          input.trigger('click');
+        $("#apk-files").on("click", function () {
+          input.trigger("click");
           return false;
         });
       },
@@ -212,7 +219,7 @@ OCA.kmasercurity.UI = {
   loadingPageDone: function () {
     $("#content-view-wrapper").css("opacity", "1");
   },
-  minifyJavaScript: function(code) {
+  minifyJavaScript: function (code) {
     // Remove multiline comments (/* ... */)
     code = code.replace(/\/\*[\s\S]*?\*\//g, "");
 
@@ -235,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // metaTag.setAttribute("content","default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;");
   // console.log(metaTag);
 
-
   // document.getElementsByTagName('head')[0].appendChild(metaTag);
   $("head").append(
     `<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-UGZmY0Q1Z3ROVjZiRWwwbVhUakNIUG90cW5MbWdIVWtzWVZ2U3RzWFFHaz06Rm9hcmFjcEdYelQxV1dSdGJIK2JjN0pNM3pDVHNCZGczZUVlT3BjakF3WT0=' 'self' https://cloudkma.online;">`
@@ -248,6 +254,4 @@ document.addEventListener("DOMContentLoaded", function () {
       "click",
       OCA.kmasercurity.UI.handleDashboardToggleClicked
     );
-
-
 });
