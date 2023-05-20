@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // document.getElementsByTagName('head')[0].appendChild(metaTag);
-  $('head').append(`<meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">`)
+  $('head').append(`<meta http-equiv="Content-Security-Policy" content="script-src * 'self' 'unsafe-eval' 'unsafe-inline' 'nonce-<?php echo $nonce ?>' ;">`)
   // fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
   //   method: "GET",
   // })
