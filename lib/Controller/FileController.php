@@ -47,12 +47,18 @@ class FileController extends Controller {
         $filePath = $folderPath . '/' . $fileName;
         $msg ="";
         try {
-            $root = $this->rootFolder->getUserFolder($this->userId);
-            $folder = $root->get($folderName);
+            $userFolder = $this->rootFolder->getUserFolder($this->userId);
+            
+            // Check if the folder exists, and create it if it doesn't
+            if (!$userFolder->nodeExists($folderName)) {
+                $folder = $userFolder->newFolder($folderName);
+            } else {
+                $folder = $userFolder->get($folderName);
+            }
             
             // Check if the folder exists, and create it if it doesn't
             if (!$folder) {
-                $folder = $root->newFolder($folderName);
+                $folder = $userFolder->newFolder($folderName);
             }
             
             // Add or update the file with the given content
