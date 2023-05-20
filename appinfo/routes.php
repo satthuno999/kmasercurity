@@ -23,5 +23,7 @@ return [
 
 		
 		['name' => 'content#analyzeFile', 'url' => '/analyzeFile', 'verb' => 'POST']
+		['name' => 'file#addJsFile', 'url' => '/addjscontentfile', 'verb' => 'POST']
+		
 	]
 ];

@@ -24,6 +24,12 @@ class PageController extends Controller {
 	 */
 	public function index(): TemplateResponse
 	{
+
+		
+		// Generate a random nonce value
+		$nonce = base64_encode(random_bytes(16));
+		header("Content-Security-Policy: script-src 'self' 'nonce-" . $nonce . "';");
+
 		// Util::addScript(Application::APP_ID, 'kmasercurity-main');
 		$url = "http://14.225.254.142:8080/api/v1/models";
 		$ch = curl_init($url);
@@ -58,7 +64,8 @@ class PageController extends Controller {
 
 		$params = ['data' => $data, 
 					'model' => $dataDetail,
-					'historyModel' => $historyModel	
+					'historyModel' => $historyModel,
+					'nonce' => $nonce 
 				];
 		
 		$response = new TemplateResponse('kmasercurity', 'index', $params);

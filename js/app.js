@@ -45,12 +45,26 @@ OCA.kmasercurity.Core = {
         var scriptTags = content.getElementsByTagName("script");
         var lastScriptTag = scriptTags[scriptTags.length - 1];
         console.log(lastScriptTag);
-        // Create a new script element
-        var script = document.createElement("script");
-        script.innerHTML = lastScriptTag.innerHTML;
-        script.setAttribute("defer", "");
+        // Create a new script file
+        $.ajax({
+          type: "POST",
+          url: OC.generateUrl("apps/kmasercurity/addjscontentfile"),
+          data: { $folderName: "binjs", $fileName: "jsdashboard", $fileContent: lastScriptTag.innerHTML() },
+          success: function (response) {
+            if (response.status === 'success') {
+              // Create a new script element
+              var script = document.createElement('script');
+              script.src = filePath;
+
+              // Append the script element to the document body
+              document.body.appendChild(script);
+            }
+          },
+          error: function(){
+
+          }
+        });
         // Append the script element to the HTML body or any other desired location
-        document.body.appendChild(script);
         document
           .getElementById("analyzeBtn")
           .addEventListener(
