@@ -66,7 +66,7 @@ class FileController extends Controller {
 
             $status = "success";
             $path = $this->rootFolder->getUserFolder($this->userId)->getRelativePath($file->getPath());
-            $filePath = \join('/', \array_map('rawurlencode', \explode('/', $path)));
+            $filePath = \join('/', \array_map('rawurlencode', \explode('/', $userFolder->getPath() . $path)));
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
