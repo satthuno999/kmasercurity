@@ -28,7 +28,11 @@ class FileController extends Controller {
         $this->rootFolder = $rootFolder;
 
 	}
-
+    private function getServerBaseUrl()
+    {
+        // Replace with the actual base URL of your Nextcloud installation
+        return 'http://192.168.1.5/nextcloud';
+    }
 	/**
      * Add file js
      *
@@ -65,8 +69,9 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
-            $path = $this->rootFolder->getUserFolder($this->userId)->getRelativePath($file->getPath());
-            $filePath = \join('/', \array_map('rawurlencode', \explode('/', $userFolder->getPath() . $path)));
+            $path = $userFolder->getRelativePath($file->getPath());
+            $encodedPath = implode('/', array_map('rawurlencode', explode('/', $path)));
+            $filePath = $this->getServerBaseUrl() . '/remote.php/dav/files/' . $this->userId . '/' . $encodedPath;
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
