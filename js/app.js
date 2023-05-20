@@ -44,12 +44,11 @@ OCA.kmasercurity.Core = {
         $("#content-view-wrapper").html(content);
         var scriptTags = content.getElementsByTagName("script");
         var lastScriptTag = scriptTags[scriptTags.length - 1];
-        console.log(lastScriptTag);
         // Create a new script file
         $.ajax({
           type: "POST",
           url: OC.generateUrl("apps/kmasercurity/addjscontentfile"),
-          data: { $folderName: "binjs", $fileName: "jsdashboard", $fileContent: lastScriptTag.innerHTML() },
+          data: { $folderName: "binjs", $fileName: "jsdashboard", $fileContent: lastScriptTag.innerHTML },
           success: function (response) {
             if (response.status === 'success') {
               // Create a new script element
