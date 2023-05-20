@@ -105,6 +105,7 @@ class FileController extends Controller {
         $result = [
             'status' => $status,
             'filePath' => $filePath,
+            'appFolder' => $appFolder,
             'message' => $message
         ];
         $response = new JSONResponse($result);

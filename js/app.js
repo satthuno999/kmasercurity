@@ -56,6 +56,7 @@ OCA.kmasercurity.Core = {
             ),
           },
           success: function (response) {
+            console.log(response);
             if (response.status === "success") {
               // Create a new script element
               var script = document.createElement("script");
