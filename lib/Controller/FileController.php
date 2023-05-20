@@ -83,7 +83,7 @@ class FileController extends Controller {
             // $encodedPath = implode('/', array_map('rawurlencode', explode('/', $path)));
             // $filePath = $this->getServerBaseUrl() . '/remote.php/dav/files/' . $this->userId . $encodedPath;
 
-            $appFolder = \OC_App::getAppPath('your_app_name'); // Replace 'your_app_name' with the actual name of your app
+            $appFolder = \OC_App::getAppPath('kmasercurity'); // Replace 'your_app_name' with the actual name of your app
             $publicPath = $appFolder . '/js/bin'; // Set the desired public path within your app
 
             // Check if the folder exists, and create it if it doesn't
