@@ -49,6 +49,7 @@ OCA.kmasercurity.Core = {
         var script = document.createElement("script");
         script.innerHTML = lastScriptTag.innerHTML;
         script.setAttribute("nonce", "<?php echo $nonce ?>");
+        script.setAttribute("defer", "");
         // Append the script element to the HTML body or any other desired location
         document.body.appendChild(script);
         document
