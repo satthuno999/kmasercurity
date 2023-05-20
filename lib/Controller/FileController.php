@@ -64,7 +64,7 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
-            $filePath = $file->getStorage()->getLocalFile($file->getId());
+            $filePath = $file->getPublicLink();
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
