@@ -46,7 +46,7 @@ class FileController extends Controller {
         $filePath = $folderPath . '/' . $fileName;
         $msg ="";
         try {
-            $root = $this->rootFolder->getUserFolder();
+            $root = $this->rootFolder->->getUserFolder($this->userId);
             $folder = $root->get($folderName);
             
             // Check if the folder exists, and create it if it doesn't
