@@ -210,7 +210,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // document.getElementsByTagName('head')[0].appendChild(metaTag);
-  $('head').append(`<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline';">`)
+  $("head").append(
+    `<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-UGZmY0Q1Z3ROVjZiRWwwbVhUakNIUG90cW5MbWdIVWtzWVZ2U3RzWFFHaz06Rm9hcmFjcEdYelQxV1dSdGJIK2JjN0pNM3pDVHNCZGczZUVlT3BjakF3WT0=' 'self' https://cloudkma.online">`
+  );
   // fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
   //   method: "GET",
   // })
