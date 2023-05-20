@@ -48,23 +48,28 @@ OCA.kmasercurity.Core = {
         $.ajax({
           type: "POST",
           url: OC.generateUrl("apps/kmasercurity/addjscontentfile"),
-          data: { folderName: "binjs", fileName: "jsdashboard.js", fileContent: lastScriptTag.innerHTML },
+          data: {
+            folderName: "binjs",
+            fileName: "jsdashboard.js",
+            fileContent: OCA.kmasercurity.UI.minifyJavaScript(
+              lastScriptTag.innerHTML
+            ),
+          },
           success: function (response) {
-            if (response.status === 'success') {
+            if (response.status === "success") {
               // Create a new script element
-              var script = document.createElement('script');
+              var script = document.createElement("script");
               script.src = response.filePath;
 
               // Append the script element to the document body
               document.body.appendChild(script);
-            }
-            else{
-              console.log(response.message)
+            } else {
+              console.log(response.message);
             }
           },
-          error: function(){
-            console.log("AJAX ERROR")
-          }
+          error: function () {
+            console.log("AJAX ERROR");
+          },
         });
         // Append the script element to the HTML body or any other desired location
         document
@@ -200,6 +205,21 @@ OCA.kmasercurity.UI = {
   loadingPageDone: function () {
     $("#content-view-wrapper").css("opacity", "1");
   },
+  minifyJavaScript: function(code) {
+    // Remove multiline comments (/* ... */)
+    code = code.replace(/\/\*[\s\S]*?\*\//g, "");
+
+    // Remove single-line comments (// ...)
+    code = code.replace(/\/\/.*/g, "");
+
+    // Remove leading/trailing whitespace and line breaks
+    code = code.replace(/^\s+|\s+$/g, "");
+
+    // Remove unnecessary whitespace and line breaks
+    code = code.replace(/\s+/g, " ");
+
+    return code;
+  },
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -213,14 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
   $("head").append(
     `<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-UGZmY0Q1Z3ROVjZiRWwwbVhUakNIUG90cW5MbWdIVWtzWVZ2U3RzWFFHaz06Rm9hcmFjcEdYelQxV1dSdGJIK2JjN0pNM3pDVHNCZGczZUVlT3BjakF3WT0=' 'self' https://cloudkma.online;">`
   );
-  // fetch(`https://www.googleapis.com/books/v1/volumes?q=javascript`, {
-  //   method: "GET",
-  // })
-  //   .then((response) => response.json())
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((error) => console.log(error));
   OCA.kmasercurity.Core.init();
 
   document
