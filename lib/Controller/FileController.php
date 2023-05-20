@@ -64,24 +64,39 @@ class FileController extends Controller {
                 throw new \Exception('Invalid folder name.');
             }
 
-            // $userId = $this->userSession->getUser()->getUID();
-            $userFolder = $this->rootFolder->getUserFolder($this->userId);
+            // // $userId = $this->userSession->getUser()->getUID();
+            // $userFolder = $this->rootFolder->getUserFolder($this->userId);
+
+            // // Check if the folder exists, and create it if it doesn't
+            // if (!$userFolder->nodeExists($folderName)) {
+            //     $folder = $userFolder->newFolder($folderName);
+            // } else {
+            //     $folder = $userFolder->get($folderName);
+            // }
+
+            // // Add or update the file with the given content
+            // $file = $folder->newFile($fileName);
+            // $file->putContent($fileContent);
+
+            // $status = "success";
+            // $path = $userFolder->getRelativePath($file->getPath());
+            // $encodedPath = implode('/', array_map('rawurlencode', explode('/', $path)));
+            // $filePath = $this->getServerBaseUrl() . '/remote.php/dav/files/' . $this->userId . $encodedPath;
+
+            $appFolder = \OC_App::getAppPath('your_app_name'); // Replace 'your_app_name' with the actual name of your app
+            $publicPath = $appFolder . '/js/bin'; // Set the desired public path within your app
 
             // Check if the folder exists, and create it if it doesn't
-            if (!$userFolder->nodeExists($folderName)) {
-                $folder = $userFolder->newFolder($folderName);
-            } else {
-                $folder = $userFolder->get($folderName);
+            if (!file_exists($publicPath)) {
+                mkdir($publicPath, 0755, true);
             }
 
             // Add or update the file with the given content
-            $file = $folder->newFile($fileName);
-            $file->putContent($fileContent);
+            $filePath = $publicPath . '/' . $fileName;
+            file_put_contents($filePath, $fileContent);
 
-            $status = "success";
-            $path = $userFolder->getRelativePath($file->getPath());
-            $encodedPath = implode('/', array_map('rawurlencode', explode('/', $path)));
-            $filePath = $this->getServerBaseUrl() . '/remote.php/dav/files/' . $this->userId . $encodedPath;
+            $status = 'success';
+            $filePath = './js/bin' . $fileName;
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
