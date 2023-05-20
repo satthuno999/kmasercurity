@@ -65,7 +65,8 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
-            $filePath = getDownloadUrl($file);
+            $path = $this->rootFolder->getUserFolder($this->userId)->getRelativePath($file->getPath());
+            $filePath = \join('/', \array_map('rawurlencode', \explode('/', $path)));
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
