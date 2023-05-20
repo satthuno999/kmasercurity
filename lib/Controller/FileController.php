@@ -43,6 +43,7 @@ class FileController extends Controller {
     {
         $status = '';
         $message = '';
+        $filePath = null;
 
         try {
             if (!is_string($folderName) || empty(trim($folderName))) {
@@ -64,13 +65,10 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
-            // $filePath = $file->getDownloadUrl();
-            $folderPath = $folder->getPath();
-            $filePath = Util::linkToRoute('download', ['file' => $folderPath . '/' . $fileName]);
+            $filePath = $file->getDownloadUrl();
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
-            $filePath = null;
         }
 
         $result = [
