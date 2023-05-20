@@ -22,3 +22,18 @@
     -o-transition: opacity 3s ease-in-out;
     transition: opacity 3s ease-in-out;
 }
+
+#header{
+    background-color: #0a54b2;
+}
+#header .header-left nav.app-menu ul.app-menu-main{
+    margin-bottom: 0;
+}
+#header .header-left nav.app-menu ul.app-menu-main li.app-menu-entry img{
+    padding: 0;
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
