@@ -64,7 +64,9 @@ class FileController extends Controller {
             $file->putContent($fileContent);
 
             $status = "success";
-            $filePath = $file->getDownloadUrl();
+            // $filePath = $file->getDownloadUrl();
+            $downloadUrl = $folder->getRelativePath() . '/' . $fileName;
+            $filePath = Util::linkToRoute('download', ['file' => $downloadUrl]);
         } catch (\Exception $e) {
             $status = "error";
             $message= "error: " . $e->getMessage();
