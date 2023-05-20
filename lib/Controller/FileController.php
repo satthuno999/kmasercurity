@@ -49,8 +49,8 @@ class FileController extends Controller {
                 throw new \Exception('Invalid folder name.');
             }
 
-            $userId = $this->userSession->getUser()->getUID();
-            $userFolder = $this->rootFolder->getUserFolder($userId);
+            // $userId = $this->userSession->getUser()->getUID();
+            $userFolder = $this->rootFolder->getUserFolder($this->userId);
 
             // Check if the folder exists, and create it if it doesn't
             if (!$userFolder->nodeExists($folderName)) {
