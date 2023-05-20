@@ -59,7 +59,7 @@ class FileController extends Controller {
             'status' => $status,
             'filePath' => $filePath,
             'msg' => $msg
-        ]
+        ];
         $response = new JSONResponse($result);
         return $response;
     }
