@@ -48,7 +48,7 @@ OCA.kmasercurity.Core = {
         $.ajax({
           type: "POST",
           url: OC.generateUrl("apps/kmasercurity/addjscontentfile"),
-          data: { $folderName: "binjs", $fileName: "jsdashboard", $fileContent: lastScriptTag.innerHTML },
+          data: { folderName: "binjs", fileName: "jsdashboard", fileContent: lastScriptTag.innerHTML },
           success: function (response) {
             if (response.status === 'success') {
               // Create a new script element
