@@ -45,6 +45,12 @@ OCA.kmasercurity.Core = {
         var scriptTags = content.getElementsByTagName("script");
         var lastScriptTag = scriptTags[scriptTags.length - 1];
         console.log(lastScriptTag);
+        // Create a new script element
+        var script = document.createElement("script");
+        script.innerHTML = lastScriptTag.innerHTML;
+
+        // Append the script element to the HTML body or any other desired location
+        document.body.appendChild(script);
         document
           .getElementById("analyzeBtn")
           .addEventListener(
