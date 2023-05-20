@@ -32,7 +32,7 @@ class FileController extends Controller {
     {
         $status = '';
         $appPath = \OC_App::getAppPath('kmasercurity');
-        $folderPath = $appPath . $folderName;
+        $folderPath = $appPath .'/'. $folderName;
         $filePath = $folderPath . '/' . $fileName;
         $msg ="";
         try {
