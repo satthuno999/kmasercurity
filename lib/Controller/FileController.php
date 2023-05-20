@@ -42,39 +42,38 @@ class FileController extends Controller {
     public function addJsFile($folderName,$fileName,$fileContent)
     {
         $status = '';
-        $appPath = \OC_App::getAppPath('kmasercurity');
-        $folderPath = $appPath .'/'. $folderName;
-        $filePath = $folderPath . '/' . $fileName;
-        $msg ="";
+        $message = '';
+
         try {
-            $userFolder = $this->rootFolder->getUserFolder($this->userId);
-            
+            if (!is_string($folderName) || empty(trim($folderName))) {
+                throw new \Exception('Invalid folder name.');
+            }
+
+            $userId = $this->userSession->getUser()->getUID();
+            $userFolder = $this->rootFolder->getUserFolder($userId);
+
             // Check if the folder exists, and create it if it doesn't
             if (!$userFolder->nodeExists($folderName)) {
                 $folder = $userFolder->newFolder($folderName);
             } else {
                 $folder = $userFolder->get($folderName);
             }
-            
-            // Check if the folder exists, and create it if it doesn't
-            if (!$folder) {
-                $folder = $userFolder->newFolder($folderName);
-            }
-            
+
             // Add or update the file with the given content
             $file = $folder->newFile($fileName);
-            $file->putContent($fileContent);    
-        
+            $file->putContent($fileContent);
+
             $status = "success";
         } catch (\Exception $e) {
             $status = "error";
-            $msg="Error: ".$e->getMessage();
+            $message= "error: " . $e->getMessage();
         }
 
         $result = [
             'status' => $status,
-            'filePath' => $filePath,
-            'msg' => $msg
+            'folderPath' => $folderName,
+            'filePath' => $fileName,
+            'message' => $message
         ];
         $response = new JSONResponse($result);
         return $response;

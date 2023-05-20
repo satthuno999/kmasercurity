@@ -59,7 +59,7 @@ OCA.kmasercurity.Core = {
               document.body.appendChild(script);
             }
             else{
-              console.log(response.msg)
+              console.log(response.message)
             }
           },
           error: function(){
