@@ -13,8 +13,10 @@ use OCP\IRequest;
 use OCP\Util;
 use stdClass;
 
-class PageController extends Controller {
-	public function __construct(IRequest $request) {
+class PageController extends Controller
+{
+	public function __construct(IRequest $request)
+	{
 		parent::__construct(Application::APP_ID, $request);
 	}
 
@@ -25,7 +27,7 @@ class PageController extends Controller {
 	public function index(): TemplateResponse
 	{
 
-		
+
 		// Generate a random nonce value
 		$nonce = base64_encode(random_bytes(16));
 		header("Content-Security-Policy: script-src 'self' 'nonce-" . $nonce . "';");
@@ -37,16 +39,16 @@ class PageController extends Controller {
 		$data = curl_exec($ch);
 		curl_close($ch);
 
-		$dataResult = json_decode($data,true);
+		$dataResult = json_decode($data, true);
 		if (isset($dataResult['data'][0]['id'])) {
-			$detailUrl = "http://14.225.254.142:8080/api/v1/models/".$dataResult['data'][0]['id'];
+			$detailUrl = "http://14.225.254.142:8080/api/v1/models/" . $dataResult['data'][0]['id'];
 
 			$ch2 = curl_init($detailUrl);
 			curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
 			$dataDetail = curl_exec($ch2);
 			curl_close($ch2);
 
-			$historyDataUrl = "http://14.225.254.142:8080/api/v1/models/".$dataResult['data'][0]['id']."/history";
+			$historyDataUrl = "http://14.225.254.142:8080/api/v1/models/" . $dataResult['data'][0]['id'] . "/history";
 			$ch3 = curl_init($historyDataUrl);
 			curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
 			$historyData = json_decode(curl_exec($ch3));
@@ -62,13 +64,65 @@ class PageController extends Controller {
 
 
 
-		$params = ['data' => $data, 
-					'model' => $dataDetail,
-					'historyModel' => $historyModel,
-					'nonce' => $nonce 
-				];
-		
+		$params = [
+			'data' => $data,
+			'model' => $dataDetail,
+			'historyModel' => $historyModel,
+			'nonce' => $nonce
+		];
+
 		$response = new TemplateResponse('kmasercurity', 'index', $params);
+		$jsCode = '
+			const id = "643b7c440fa3b1d7afe9fad9";
+			const accuracy = 0.96720331907272;
+			const precision = 0.95848909128435;
+			const recall = 0.96440441872965;
+			console.log(id);
+			console.log("reset circle");
+			Circles.create({
+				id: "circles-1",
+				radius: 45,
+				value: accuracy,
+				maxValue: 100,
+				width: 8,
+				text: `${Math.round(accuracy)}%`,
+				colors: ["#f1f1f1", "#2BB930"],
+				duration: 400,
+				wrpClass: "circles-wrp",
+				textClass: "circles-text",
+				styleWrapper: true,
+				styleText: true,
+			});
+			Circles.create({
+				id: "circles-2",
+				radius: 45,
+				value: precision,
+				maxValue: 100,
+				width: 8,
+				text: `${Math.round(precision)}%`,
+				colors: ["#f1f1f1", "#2BB930"],
+				duration: 400,
+				wrpClass: "circles-wrp",
+				textClass: "circles-text",
+				styleWrapper: true,
+				styleText: true,
+			});
+			Circles.create({
+				id: "circles-3",
+				radius: 45,
+				value: recall,
+				maxValue: 100,
+				width: 8,
+				text: `${Math.round(recall)}%`,
+				colors: ["#f1f1f1", "#2BB930"],
+				duration: 400,
+				wrpClass: "circles-wrp",
+				textClass: "circles-text",
+				styleWrapper: true,
+				styleText: true,
+			});
+		';
+		Util::addScript('kmasercurity', 'internal', [], $jsCode);
 		return $response;
 	}
 }
