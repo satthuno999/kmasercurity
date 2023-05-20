@@ -45,33 +45,39 @@ OCA.kmasercurity.Core = {
         var scriptTags = content.getElementsByTagName("script");
         var lastScriptTag = scriptTags[scriptTags.length - 1];
         // Create a new script file
-        $.ajax({
-          type: "POST",
-          url: OC.generateUrl("apps/kmasercurity/addjscontentfile"),
-          data: {
-            folderName: "binjs",
-            fileName: "jsdashboard.js",
-            fileContent: OCA.kmasercurity.UI.minifyJavaScript(
-              lastScriptTag.innerHTML
-            ),
-          },
-          success: function (response) {
-            console.log(response);
-            if (response.status === "success") {
-              // Create a new script element
-              var script = document.createElement("script");
-              script.src = response.filePath;
+        // $.ajax({
+        //   type: "POST",
+        //   url: OC.generateUrl("apps/kmasercurity/addjscontentfile"),
+        //   data: {
+        //     folderName: "binjs",
+        //     fileName: "jsdashboard.js",
+        //     fileContent: OCA.kmasercurity.UI.minifyJavaScript(
+        //       lastScriptTag.innerHTML
+        //     ),
+        //   },
+        //   success: function (response) {
+        //     console.log(response);
+        //     if (response.status === "success") {
+        //       // Create a new script element
+        //       var script = document.createElement("script");
+        //       script.src = response.filePath;
 
-              // Append the script element to the document body
-              document.body.appendChild(script);
-            } else {
-              console.log(response.message);
-            }
-          },
-          error: function () {
-            console.log("AJAX ERROR");
-          },
-        });
+        //       // Append the script element to the document body
+        //       document.body.appendChild(script);
+        //     } else {
+        //       console.log(response.message);
+        //     }
+        //   },
+        //   error: function () {
+        //     console.log("AJAX ERROR");
+        //   },
+        // });
+
+        var script = document.createElement("script");
+        script.innerHTML = lastScriptTag.innerHTML;
+
+        // Append the script element to the document body
+        document.body.appendChild(script);
         // Append the script element to the HTML body or any other desired location
         document
           .getElementById("analyzeBtn")
