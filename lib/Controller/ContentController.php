@@ -9,6 +9,7 @@ use OCA\KmaSercurity\AppInfo\Application;
 use OCA\KmaSercurity\Models\HistoryModel;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\IRequest;
 use OCP\Util;
 
@@ -62,6 +63,13 @@ class ContentController extends Controller
 		];
 
 		$response = new TemplateResponse('kmasercurity', 'views/dashboard', $params);
+		$csp = new ContentSecurityPolicy();
+		$csp->addAllowedMediaDomain('*');
+		$csp->addAllowedScriptDomain("unsafe-inline");
+		$csp->allowInlineScript(true);
+		$csp->allowInlineStyle(true);
+		$csp->allowEvalScript(true);
+		$response->setContentSecurityPolicy($csp);
 		return $response;
 	}
 	/**
