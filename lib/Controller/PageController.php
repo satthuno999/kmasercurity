@@ -11,6 +11,7 @@ use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 use OCP\Util;
+use OCP\AppFramework\Http\ContentSecurityPolicy;
 use stdClass;
 
 class PageController extends Controller
