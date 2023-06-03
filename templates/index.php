@@ -4,7 +4,6 @@ declare(strict_types=1);
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 use OCP\Util;
-use OCP\AppFramework\Http\TemplateResponse;
 
 Util::addScript('kmasercurity', 'plugin/webfont/webfont.min');
 Util::addStyle('kmasercurity', 'fonts.min');
